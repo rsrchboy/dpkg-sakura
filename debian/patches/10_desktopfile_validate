@@ -1,0 +1,26 @@
+# Edit .desktop file so that it passes desktop-file-validate.
+# Upstream bug: https://bugs.edge.launchpad.net/sakura/+bug/391727
+# Fixes:
+#        warning: key "Encoding" in group "Desktop Entry" is deprecated
+#
+#        warning: value "terminal-tango.png" for key "Icon" in group 
+#        "Desktop Entry" is an icon name with an extension, but there 
+#        should be no extension as described in the Icon Theme Specification
+#        if the value is not an absolute path
+
+Index: debian/sakura.desktop
+===================================================================
+--- sakura.orig/sakura.desktop	2009-06-24 13:25:26.151499169 -0400
++++ sakura/sakura.desktop	2009-06-24 13:26:52.467501987 -0400
+@@ -1,10 +1,9 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Name=Sakura
+ Comment=Use the command line
+ TryExec=sakura
+ Exec=sakura
+-Icon=terminal-tango.png
++Icon=terminal-tango
+ Type=Application
+ Categories=GTK;Utility;TerminalEmulator;
+ StartupNotify=true

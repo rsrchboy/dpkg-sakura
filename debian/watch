@@ -1,0 +1,7 @@
+# Unfortunately, the location of the upstream tarballs does not
+# allow uscan to query it, returning a 403 Forbidden.
+#
+# A get-orig-source target has be provided in debian/rules. 
+#
+# version=3
+# http://www.pleyades.net/david/projects/sakura/sakura-(.*)\.tar\.gz
