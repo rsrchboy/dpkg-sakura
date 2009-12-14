@@ -1,17 +1,15 @@
 Source: sakura
 Section: x11
 Priority: optional
-Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Andrew Starr-Bochicchio <a.starr.b@gmail.com>
-Build-Depends:	debhelper (>= 5.0.51~),
+Build-Depends:	debhelper (>= 7.0.50~),
 		cmake,
 		perl,
 		libgtk2.0-dev (>= 2.10),
-		libvte-dev (>= 1:0.16.15),
-		quilt
-Standards-Version: 3.8.2
-Vcs-Bzr: https://code.launchpad.net/~andrewsomething/sakura/ubuntu
-Vcs-Browser: http://bazaar.launchpad.net/~andrewsomething/sakura/ubuntu/files
+		libvte-dev (>= 1:0.16.15)
+Standards-Version: 3.8.3
+Vcs-Bzr: lp:ubuntu/sakura
 Homepage: http://www.pleyades.net/david/sakura.php
 
 Package: sakura

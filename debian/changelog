@@ -1,3 +1,18 @@
+sakura (2.3.5-0ubuntu1) lucid; urgency=low
+
+  * New upstream release.
+  * Drop debian/sakura.pod, manpage included upstream.
+  * Drop debian/patches/10_desktopfile_validate, incuded upstream. 
+  * debain/{rules, control}:
+   - Drop quilt.
+   - Move to dh 7
+  * debian/control:
+   - Bump Standards-Version to 3.8.3
+   - Drop old Vcs fields. Now maintained directly in lp:ubuntu/sakura
+  * debian/copyright: Update Dep-5 compliance.
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Mon, 14 Dec 2009 14:35:00 -0500
+
 sakura (2.3.4-0ubuntu1) karmic; urgency=low
 
   * Initial release (LP: #384711)

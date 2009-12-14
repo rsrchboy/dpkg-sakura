@@ -1,10 +1,4 @@
 #!/usr/bin/make -f
-# -*- makefile -*-
-
-# Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
-
-include /usr/share/quilt/quilt.make
 
 PACKAGE := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 VERSION := $(shell dpkg-parsechangelog | sed -ne 's/^Version: \(.*\)-.*/\1/p')
@@ -14,71 +8,14 @@ get-orig-source:
 	mkdir -p $@
 	cd $@ && wget http://www.pleyades.net/david/projects/sakura/$(PACKAGE)-$(VERSION).tar.gz
 	cd $@ && mv $(PACKAGE)-$(VERSION).tar.gz ../../$(PACKAGE)_$(VERSION).orig.tar.gz
-	rm -r $@	
+	rm -r $@
 
-configure: configure-stamp
-configure-stamp: patch
-	dh_testdir
-	# Add here commands to configure the package.
+%:
+	dh $@
+
+override_dh_auto_configure:
 	cmake -DCMAKE_INSTALL_PREFIX=/usr
-	touch configure-stamp
 
-
-build: build-stamp
-	pod2man -u --section=1 --release=$(VERSION) --center "" debian/sakura.pod > sakura.1
-
-build-stamp: configure-stamp 
-	dh_testdir
-
-	# Add here commands to compile the package.
-	$(MAKE)
-
-	touch $@
-
-clean: unpatch
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
-
-	# Add here commands to clean up after the build process.
-	[ ! -f Makefile ] || $(MAKE) distclean
-	rm -f sakura.1
-	dh_clean 
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k 
-	dh_installdirs
-
-	# Add here commands to install the package into debian/sakura.
-	$(MAKE) DESTDIR=$(CURDIR)/debian/sakura install
-
-
-# Build architecture-independent files here.
-binary-indep: build install
-# We have nothing to do by default.
-
-
-# Build architecture-dependent files here.
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs
+override_dh_install:
+	dh_install
 	rm -f debian/sakura/usr/share/doc/sakura/INSTALL
-	dh_installdocs AUTHORS
-	dh_installexamples
-	dh_installman sakura.1
-	dh_icons
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
