@@ -1,3 +1,10 @@
+sakura (2.3.8-0ubuntu1) maverick; urgency=low
+
+  * New upstream release.
+  * Deleate un-needed debian/README.source file.
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Sat, 15 May 2010 14:08:12 -0400
+
 sakura (2.3.7-0ubuntu1) lucid; urgency=low
 
   * New upstream bugfix release.
