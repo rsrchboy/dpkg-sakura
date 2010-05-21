@@ -1,0 +1,170 @@
+# Copyright (C) 2006
+# This file is distributed under the same license as the sakura package.
+# David Gómez <david@pleyades.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: sakura\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-02 11:16+0200\n"
+"PO-Revision-Date: 2008-12-25 19:04+0100\n"
+"Last-Translator: David Gómez <david@pleyades.net>\n"
+"Language-Team:  <davidge@pleyades.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Print version number"
+msgstr "Imprimir el número de versió"
+
+msgid "Select initial terminal font"
+msgstr "Sel·leccionar el tipus de font inicial"
+
+msgid "Select initial number of tabs"
+msgstr "Sel·leccionar el número inicial de pestanyes"
+
+msgid "Execute command"
+msgstr "Executar ordre"
+
+msgid "Login shell"
+msgstr "Shell de login"
+
+msgid "Set window title"
+msgstr "Definir el nom de la finestra"
+
+msgid "Set columns number"
+msgstr "Definir el número de columnes"
+
+msgid "Set rows number"
+msgstr "Definir el número de linies"
+
+msgid "Hold window after execute command"
+msgstr ""
+
+#, c-format
+msgid ""
+"There are %d tabs opened.\n"
+"\n"
+"Do you really want to close Sakura?"
+msgstr ""
+"Hi ha %d pestanyes obertes.\n"
+"\n"
+"¿Vol tancar Sakura?"
+
+msgid "Select font"
+msgstr "Sel·leccioni font"
+
+msgid "Set name"
+msgstr "Definir nom"
+
+#, fuzzy
+msgid "New tab text"
+msgstr "Nova pestanya"
+
+msgid "Select color"
+msgstr "Sel·leccionar color"
+
+msgid "Select foreground color:"
+msgstr "Sel·leccionar color de font"
+
+msgid "Select background color:"
+msgstr "Sel·leccionar color de fons"
+
+msgid "Opacity"
+msgstr "Opacitat"
+
+msgid "Opacity level (%):"
+msgstr "Nivell d'opacitat (%)"
+
+msgid "Disable opacity"
+msgstr "Deshabil·litar opacitat"
+
+#, fuzzy
+msgid "New window title"
+msgstr "Definir el nom de la finestra"
+
+msgid "Select a background file"
+msgstr "Sel·leccionar fitxer de fons"
+
+msgid "Open link..."
+msgstr "Obrir enllaç..."
+
+msgid "Copy link..."
+msgstr "Copiar enllaç..."
+
+msgid "New tab"
+msgstr "Nova pestanya"
+
+msgid "Set name..."
+msgstr "Definir nom"
+
+msgid "Close tab"
+msgstr "Tancar pestanya"
+
+msgid "Full screen"
+msgstr ""
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Paste"
+msgstr "Enganxar"
+
+msgid "Select font..."
+msgstr "Sel·leccionar font..."
+
+msgid "Select colors..."
+msgstr "Sel·leccionar colors..."
+
+msgid "Select background..."
+msgstr "Sel·leccionar fons..."
+
+msgid "Clear background"
+msgstr "Natejar fons..."
+
+msgid "Set opacity level..."
+msgstr "Fixar nivell d'opacitat..."
+
+msgid "Set window title..."
+msgstr "Definir el nom de la finestra"
+
+msgid "Show always first tab"
+msgstr "Mostrar sempre la primera pestanya"
+
+msgid "Show tab close button"
+msgstr ""
+
+msgid "Toggle scrollbar"
+msgstr "Mostrar la barra de desplaçament"
+
+msgid "Set audible bell"
+msgstr ""
+
+msgid "Set visible bell"
+msgstr ""
+
+msgid "Set blinking cursor"
+msgstr ""
+
+msgid "Input methods"
+msgstr "Mètodes d'entrada"
+
+msgid "Options"
+msgstr "Opcions"
+
+msgid "Set palette"
+msgstr ""
+
+#, c-format
+msgid "Terminal %d"
+msgstr "Terminal %d"
+
+msgid "- vte-based terminal emulator"
+msgstr "- emulador de terminal basat en libvte"
+
+# c-format
+#, c-format
+msgid "sakura version is %s\n"
+msgstr "La versió de sakura és %s\n"
+
+#~ msgid "Show scrollbar"
+#~ msgstr "Mostrar la barra de desplaçament"

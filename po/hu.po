@@ -1,0 +1,167 @@
+# Copyright (C) 2006
+# This file is distributed under the same license as the sakura package.
+# David Gómez <david@pleyades.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: sakura\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-02 11:16+0200\n"
+"PO-Revision-Date: 2008-12-25 19:01+0100\n"
+"Last-Translator: Szervác Attila <sas@321.hu>\n"
+"Language-Team: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+
+msgid "Print version number"
+msgstr ""
+
+msgid "Select initial terminal font"
+msgstr ""
+
+msgid "Select initial number of tabs"
+msgstr ""
+
+msgid "Execute command"
+msgstr ""
+
+msgid "Login shell"
+msgstr ""
+
+msgid "Set window title"
+msgstr ""
+
+msgid "Set columns number"
+msgstr ""
+
+msgid "Set rows number"
+msgstr ""
+
+msgid "Hold window after execute command"
+msgstr ""
+
+#, fuzzy, c-format
+msgid ""
+"There are %d tabs opened.\n"
+"\n"
+"Do you really want to close Sakura?"
+msgstr "Több lap is nyitva van. Bezárod a Sakurát?"
+
+msgid "Select font"
+msgstr "Válassz betűt"
+
+msgid "Set name"
+msgstr "Név beállítása"
+
+#, fuzzy
+msgid "New tab text"
+msgstr "Új lap"
+
+msgid "Select color"
+msgstr "Válassz színt"
+
+msgid "Select foreground color:"
+msgstr "Válassz színt"
+
+msgid "Select background color:"
+msgstr "Válassz háttér fájlt"
+
+msgid "Opacity"
+msgstr ""
+
+msgid "Opacity level (%):"
+msgstr ""
+
+msgid "Disable opacity"
+msgstr ""
+
+#, fuzzy
+msgid "New window title"
+msgstr "Név beállítása..."
+
+msgid "Select a background file"
+msgstr "Válassz háttér fájlt"
+
+msgid "Open link..."
+msgstr "Link megnyitása..."
+
+msgid "Copy link..."
+msgstr ""
+
+msgid "New tab"
+msgstr "Új lap"
+
+msgid "Set name..."
+msgstr "Név beállítása..."
+
+msgid "Close tab"
+msgstr "Lap bezárása"
+
+msgid "Full screen"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Paste"
+msgstr ""
+
+msgid "Select font..."
+msgstr "Válassz betűt..."
+
+msgid "Select colors..."
+msgstr "Válassz színeket..."
+
+msgid "Select background..."
+msgstr "Háttér választása..."
+
+msgid "Clear background"
+msgstr "Háttér választása"
+
+msgid "Set opacity level..."
+msgstr ""
+
+#, fuzzy
+msgid "Set window title..."
+msgstr "Név beállítása..."
+
+msgid "Show always first tab"
+msgstr ""
+
+msgid "Show tab close button"
+msgstr ""
+
+msgid "Toggle scrollbar"
+msgstr ""
+
+msgid "Set audible bell"
+msgstr ""
+
+msgid "Set visible bell"
+msgstr ""
+
+msgid "Set blinking cursor"
+msgstr ""
+
+msgid "Input methods"
+msgstr "Beviteli módok"
+
+msgid "Options"
+msgstr ""
+
+msgid "Set palette"
+msgstr ""
+
+#, c-format
+msgid "Terminal %d"
+msgstr ""
+
+msgid "- vte-based terminal emulator"
+msgstr ""
+
+#, c-format
+msgid "sakura version is %s\n"
+msgstr ""

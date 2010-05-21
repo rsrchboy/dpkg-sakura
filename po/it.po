@@ -1,0 +1,164 @@
+# Copyright (C) 2006
+# This file is distributed under the same license as the sakura package.
+# Fontana Nicola <nicola@entidi.it>
+msgid ""
+msgstr ""
+"Project-Id-Version: sakura\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-02 11:16+0200\n"
+"PO-Revision-Date: 2008-12-25 19:01+0100\n"
+"Last-Translator: Fontana Nicola <nicola@entidi.id>\n"
+"Language-Team:  <nicola@entidi.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Print version number"
+msgstr "Stampare il numero di versione"
+
+msgid "Select initial terminal font"
+msgstr "Selezionare il font iniziale"
+
+msgid "Select initial number of tabs"
+msgstr "Selezionare il numero di schede iniziale"
+
+msgid "Execute command"
+msgstr "Eseguire comando"
+
+msgid "Login shell"
+msgstr ""
+
+msgid "Set window title"
+msgstr ""
+
+msgid "Set columns number"
+msgstr ""
+
+msgid "Set rows number"
+msgstr ""
+
+msgid "Hold window after execute command"
+msgstr ""
+
+#, fuzzy, c-format
+msgid ""
+"There are %d tabs opened.\n"
+"\n"
+"Do you really want to close Sakura?"
+msgstr "Più schede aperte. Vuoi comunque chiudere Sakura?"
+
+msgid "Select font"
+msgstr "Selezionare il font"
+
+msgid "Set name"
+msgstr "Impostare il nome"
+
+#, fuzzy
+msgid "New tab text"
+msgstr "Nuova scheda"
+
+msgid "Select color"
+msgstr "Selezionare il colore"
+
+msgid "Select foreground color:"
+msgstr "Selezionare il colore del testo"
+
+msgid "Select background color:"
+msgstr "Selezionare il colore dello sfondo"
+
+msgid "Opacity"
+msgstr ""
+
+msgid "Opacity level (%):"
+msgstr ""
+
+msgid "Disable opacity"
+msgstr ""
+
+#, fuzzy
+msgid "New window title"
+msgstr "Impostare il nome..."
+
+msgid "Select a background file"
+msgstr "Selezionare il file di background"
+
+msgid "Open link..."
+msgstr "Aprire collegamento..."
+
+msgid "Copy link..."
+msgstr ""
+
+msgid "New tab"
+msgstr "Nuova scheda"
+
+msgid "Set name..."
+msgstr "Impostare il nome..."
+
+msgid "Close tab"
+msgstr "Chiudere scheda"
+
+msgid "Full screen"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Paste"
+msgstr ""
+
+msgid "Select font..."
+msgstr "Selezionare il font..."
+
+msgid "Select colors..."
+msgstr "Selezionare i colori..."
+
+msgid "Select background..."
+msgstr "Selezionare lo sfondo..."
+
+msgid "Clear background"
+msgstr "Pulizia sfondo"
+
+msgid "Set opacity level..."
+msgstr ""
+
+#, fuzzy
+msgid "Set window title..."
+msgstr "Impostare il nome..."
+
+msgid "Show always first tab"
+msgstr "Mostrare sempre la prima scheda"
+
+msgid "Show tab close button"
+msgstr ""
+
+msgid "Toggle scrollbar"
+msgstr ""
+
+msgid "Set audible bell"
+msgstr ""
+
+msgid "Set visible bell"
+msgstr ""
+
+msgid "Set blinking cursor"
+msgstr ""
+
+msgid "Input methods"
+msgstr "Metodi di input"
+
+msgid "Options"
+msgstr "Opzioni"
+
+msgid "Set palette"
+msgstr ""
+
+#, c-format
+msgid "Terminal %d"
+msgstr "Terminale %d"
+
+msgid "- vte-based terminal emulator"
+msgstr "- emulatore di terminale basato su libvte"
+
+#, c-format
+msgid "sakura version is %s\n"
+msgstr "La versione di Sakura è %s\n"
