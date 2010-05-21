@@ -18,4 +18,5 @@ override_dh_auto_configure:
 
 override_dh_install:
 	dh_install
+	dh_install debian/terminal-tango.xpm $(DESTDIR)/usr/share/pixmaps
 	rm -f debian/sakura/usr/share/doc/sakura/INSTALL

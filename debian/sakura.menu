@@ -1,0 +1,2 @@
+?package(sakura):needs="X11" section="Applications/Terminal Emulators"\
+ icon="/usr/share/pixmaps/terminal-tango.xpm" title="Sakura" command="/usr/bin/sakura"
