@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-02 11:16+0200\n"
+"POT-Creation-Date: 2009-12-21 14:14+0100\n"
 "PO-Revision-Date: 2008-12-25 19:05+0100\n"
 "Last-Translator: David Gómez <david@pleyades.net>\n"
 "Language-Team:  <fabrice.thiroux@free.fr>\n"
@@ -79,7 +79,6 @@ msgstr "Niveau d'opacité (%)"
 msgid "Disable opacity"
 msgstr "Désactiver l'opacité"
 
-#, fuzzy
 msgid "New window title"
 msgstr "Définir le titre de la fenêtre"
 
@@ -134,7 +133,8 @@ msgstr "Toujours afficher le premier onglet"
 msgid "Show tab close button"
 msgstr ""
 
-msgid "Toggle scrollbar"
+#, fuzzy
+msgid "Show scrollbar"
 msgstr "Permutter le barre de défilement"
 
 msgid "Set audible bell"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-02 11:16+0200\n"
+"POT-Creation-Date: 2009-12-21 14:14+0100\n"
 "PO-Revision-Date: 2008-12-25 19:04+0100\n"
 "Last-Translator: David Gómez <david@pleyades.net>\n"
 "Language-Team:  <davidge@pleyades.net>\n"
@@ -78,7 +78,6 @@ msgstr "Nivell d'opacitat (%)"
 msgid "Disable opacity"
 msgstr "Deshabil·litar opacitat"
 
-#, fuzzy
 msgid "New window title"
 msgstr "Definir el nom de la finestra"
 
@@ -133,7 +132,7 @@ msgstr "Mostrar sempre la primera pestanya"
 msgid "Show tab close button"
 msgstr ""
 
-msgid "Toggle scrollbar"
+msgid "Show scrollbar"
 msgstr "Mostrar la barra de desplaçament"
 
 msgid "Set audible bell"
@@ -166,5 +165,5 @@ msgstr "- emulador de terminal basat en libvte"
 msgid "sakura version is %s\n"
 msgstr "La versió de sakura és %s\n"
 
-#~ msgid "Show scrollbar"
+#~ msgid "Toggle scrollbar"
 #~ msgstr "Mostrar la barra de desplaçament"
