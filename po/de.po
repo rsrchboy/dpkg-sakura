@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-21 14:14+0100\n"
+"POT-Creation-Date: 2010-02-28 17:47+0900\n"
 "PO-Revision-Date: 2009-10-21 11:48+0100\n"
 "Last-Translator: Thorsten Mühlfelder <thenktor@gmx.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -42,9 +42,12 @@ msgstr "Zeilennummer wählen"
 msgid "Hold window after execute command"
 msgstr "Fenster nach Ausführen des Befehls nicht schließen"
 
-#, c-format
+msgid "X geometry specification"
+msgstr ""
+
+#, fuzzy
 msgid ""
-"There are %d tabs opened.\n"
+"There are running processes.\n"
 "\n"
 "Do you really want to close Sakura?"
 msgstr ""
@@ -83,6 +86,15 @@ msgstr "Fenstertitel wählen"
 
 msgid "Select a background file"
 msgstr "Datei für Hintergrundbild wählen"
+
+#, fuzzy
+msgid ""
+"There is a running process in this terminal.\n"
+"\n"
+"Do you really want to close it?"
+msgstr ""
+"Es sind %d Reiter geöffnet.\n"
+"Wollen Sie Sakura wirklich schließen?"
 
 msgid "Open link..."
 msgstr "Öffne Link..."
@@ -163,6 +175,14 @@ msgstr "- vte-basierter Terminal-Emulator"
 #, c-format
 msgid "sakura version is %s\n"
 msgstr "Sakura-Version ist %s\n"
+
+#~ msgid ""
+#~ "There are %d tabs opened.\n"
+#~ "\n"
+#~ "Do you really want to close Sakura?"
+#~ msgstr ""
+#~ "Es sind %d Reiter geöffnet.\n"
+#~ "Wollen Sie Sakura wirklich schließen?"
 
 #~ msgid "Toggle scrollbar"
 #~ msgstr "Scrollbalken anzeigen"

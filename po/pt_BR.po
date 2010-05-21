@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-21 14:14+0100\n"
+"POT-Creation-Date: 2010-02-28 17:47+0900\n"
 "PO-Revision-Date: 2008-12-25 19:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: fabio.antunes@hotmail.com <fabio.antunes@hotmail.com>\n"
@@ -37,9 +37,12 @@ msgstr ""
 msgid "Hold window after execute command"
 msgstr ""
 
-#, fuzzy, c-format
+msgid "X geometry specification"
+msgstr ""
+
+#, fuzzy
 msgid ""
-"There are %d tabs opened.\n"
+"There are running processes.\n"
 "\n"
 "Do you really want to close Sakura?"
 msgstr "Há outras abas abertas. Deseja mesmo fechar o Sakura?"
@@ -77,6 +80,13 @@ msgstr "Definir título da janela"
 
 msgid "Select a background file"
 msgstr "Selecionar arquivo de segundo plano"
+
+#, fuzzy
+msgid ""
+"There is a running process in this terminal.\n"
+"\n"
+"Do you really want to close it?"
+msgstr "Há outras abas abertas. Deseja mesmo fechar o Sakura?"
 
 msgid "Open link..."
 msgstr "Abrir link..."
@@ -157,3 +167,10 @@ msgstr "- emulador de terminal baseado no vte"
 #, c-format
 msgid "sakura version is %s\n"
 msgstr "sakura versão %s\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "There are %d tabs opened.\n"
+#~ "\n"
+#~ "Do you really want to close Sakura?"
+#~ msgstr "Há outras abas abertas. Deseja mesmo fechar o Sakura?"

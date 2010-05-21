@@ -4,7 +4,7 @@ IF (COMMAND CMAKE_POLICY)
 ENDIF (COMMAND CMAKE_POLICY)	
 PROJECT (sakura)
 SET (AUTHOR "David Gómez Espinosa" INTERNAL "Author")
-SET (VERSION "2.3.6")
+SET (VERSION "2.3.7")
 
 
 INCLUDE (FindPkgConfig)
@@ -29,6 +29,7 @@ IF (NOT VTE_FOUND)
 ENDIF (NOT VTE_FOUND)
 
 FIND_PROGRAM(POD2MAN pod2man)	
+MESSAGE ("pod2man executable is" ${POD2MAN})	
 
 ADD_DEFINITIONS (-DVERSION=\\\"${VERSION}\\\")
 ADD_DEFINITIONS (-DDATADIR=\\\"${CMAKE_INSTALL_PREFIX}/share\\\")
@@ -51,7 +52,9 @@ ADD_SUBDIRECTORY (po)
 INSTALL (TARGETS sakura RUNTIME DESTINATION bin)	
 INSTALL (FILES sakura.desktop DESTINATION share/applications)
 INSTALL (FILES terminal-tango.svg DESTINATION share/pixmaps)
-INSTALL (FILES sakura.1 DESTINATION share/man/man1)	
+IF (POD2MAN)	
+	INSTALL (FILES ${sakura_BINARY_DIR}/sakura.1 DESTINATION share/man/man1)	
+ENDIF (POD2MAN)
 INSTALL (FILES INSTALL DESTINATION share/doc/sakura)	
 
 FILE (GLOB MO_FILES po/*.mo)
@@ -65,7 +68,7 @@ ADD_CUSTOM_TARGET (distclean
 	COMMAND rm -f po/*.mo po/sakura.pot po/Makefile po/cmake_install.cmake 
 	COMMAND rm -rf CMakeFiles po/CMakeFiles)
 
-IF (POD2MAN)	
+IF (POD2MAN) 
 ADD_CUSTOM_TARGET(man ALL
-	COMMAND pod2man -u --section=1 --release=${VERSION} --center '' sakura.pod sakura.1)
-ENDIF (POD2MAN)
+	COMMAND ${POD2MAN} -u --section=1 --release=${VERSION} --center '' ${sakura_SOURCE_DIR}/sakura.pod sakura.1)
+ENDIF (POD2MAN)	

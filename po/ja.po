@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ja\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-21 14:14+0100\n"
+"POT-Creation-Date: 2010-02-28 17:47+0900\n"
 "PO-Revision-Date: 2008-12-25 19:06+0100\n"
 "Last-Translator: David Gómez <david@pleyades.net>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -39,9 +39,12 @@ msgstr ""
 msgid "Hold window after execute command"
 msgstr ""
 
-#, c-format
+msgid "X geometry specification"
+msgstr ""
+
+#, fuzzy
 msgid ""
-"There are %d tabs opened.\n"
+"There are running processes.\n"
 "\n"
 "Do you really want to close Sakura?"
 msgstr ""
@@ -82,6 +85,16 @@ msgstr "ウィンドウタイトルを指定"
 
 msgid "Select a background file"
 msgstr "背景ファイルを選択"
+
+#, fuzzy
+msgid ""
+"There is a running process in this terminal.\n"
+"\n"
+"Do you really want to close it?"
+msgstr ""
+"%dタブを開いています。\n"
+"\n"
+"本当に Sakura を終了しますか？"
 
 msgid "Open link..."
 msgstr "リンクを開く"
@@ -162,3 +175,12 @@ msgstr "- vte ベースのターミナルエミュレータ"
 #, c-format
 msgid "sakura version is %s\n"
 msgstr "sakura のバージョンは %s です\n"
+
+#~ msgid ""
+#~ "There are %d tabs opened.\n"
+#~ "\n"
+#~ "Do you really want to close Sakura?"
+#~ msgstr ""
+#~ "%dタブを開いています。\n"
+#~ "\n"
+#~ "本当に Sakura を終了しますか？"
