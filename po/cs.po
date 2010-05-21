@@ -1,14 +1,14 @@
 # Czech translation of sakura.
 # Copyright (C) 2006 THE sakura'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the sacura package.
-# Lucas Lommer <llommer@svn.gnome.org>, 2006, 2009.
+# This file is distributed under the same license as the sakura package.
+# Lucas Lommer <llommer@svn.gnome.org>, 2006, 2009, 2010.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: sakura 2.3.3\n"
+"Project-Id-Version: sakura 2.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-21 14:14+0100\n"
-"PO-Revision-Date: 2009-03-18 18:56+0100\n"
+"POT-Creation-Date: 2010-02-28 17:47+0900\n"
+"PO-Revision-Date: 2010-02-25 15:32+0100\n"
 "Last-Translator: Lucas Lommer <llommer@svn.gnome.org>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgid "Set window title"
 msgstr "Nastaví titulek okna"
 
 msgid "Set columns number"
-msgstr "Nastaví počet znaků na řádek"
+msgstr "Nastaví počet sloupců"
 
 msgid "Set rows number"
 msgstr "Nastaví počet řádek"
@@ -43,15 +43,17 @@ msgstr "Nastaví počet řádek"
 msgid "Hold window after execute command"
 msgstr "Zachovat okno po vykonání příkazu"
 
-#, c-format
+msgid "X geometry specification"
+msgstr "Volba rozměru v ose X"
+
 msgid ""
-"There are %d tabs opened.\n"
+"There are running processes.\n"
 "\n"
 "Do you really want to close Sakura?"
 msgstr ""
-"Máte otevřeno %d záložek.\n"
+"Aplikace obsahuje běžící procesy.\n"
 "\n"
-"Skutečně chcete ukončit program Sakura?"
+"Opravdu chcete ukončit aplikaci Sakura?"
 
 msgid "Select font"
 msgstr "Zvolte písmo"
@@ -86,17 +88,26 @@ msgstr "Název nového okna"
 msgid "Select a background file"
 msgstr "Vyberte obrázek na pozadí"
 
+msgid ""
+"There is a running process in this terminal.\n"
+"\n"
+"Do you really want to close it?"
+msgstr ""
+"V tomto terminálu běží proces.\n"
+"\n"
+"Opravdu jej chcete uzavřít?"
+
 msgid "Open link..."
-msgstr "Otevřít odkaz..."
+msgstr "Otevřít odkaz…"
 
 msgid "Copy link..."
-msgstr "Kopírovat odkaz..."
+msgstr "Kopírovat odkaz…"
 
 msgid "New tab"
 msgstr "Nová karta"
 
 msgid "Set name..."
-msgstr "Nastavit jméno..."
+msgstr "Nastavit název…"
 
 msgid "Close tab"
 msgstr "Zavřít kartu"
@@ -111,22 +122,22 @@ msgid "Paste"
 msgstr "Vložit"
 
 msgid "Select font..."
-msgstr "Zvolte písmo..."
+msgstr "Zvolte písmo…"
 
 msgid "Select colors..."
-msgstr "Zvolte barvy..."
+msgstr "Zvolte barvy…"
 
 msgid "Select background..."
-msgstr "Zvolte pozadí..."
+msgstr "Zvolte pozadí…"
 
 msgid "Clear background"
 msgstr "Vymazat pozadí"
 
 msgid "Set opacity level..."
-msgstr "Nastavit úroveň průhlednosti..."
+msgstr "Nastavit úroveň průhlednosti…"
 
 msgid "Set window title..."
-msgstr "Nastavit název okna..."
+msgstr "Nastavit název okna…"
 
 msgid "Show always first tab"
 msgstr "Vždy zobrazit první kartu"
@@ -135,7 +146,7 @@ msgid "Show tab close button"
 msgstr "Zobrazit tlačítko uzavření karty"
 
 msgid "Show scrollbar"
-msgstr ""
+msgstr "Zobrazit posuvník"
 
 msgid "Set audible bell"
 msgstr "Nastavit akustické upozornění"
@@ -144,13 +155,13 @@ msgid "Set visible bell"
 msgstr "Nastavit vizuální upozornění"
 
 msgid "Set blinking cursor"
-msgstr ""
+msgstr "Nastavit blikající kurzor"
 
 msgid "Input methods"
 msgstr "Vstupní metody"
 
 msgid "Options"
-msgstr "Nastavení"
+msgstr "Volby"
 
 msgid "Set palette"
 msgstr "Nastavit paletu"
