@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sakura 2.3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-02 11:16+0200\n"
+"POT-Creation-Date: 2009-12-21 14:14+0100\n"
 "PO-Revision-Date: 2008-12-25 19:01+0100\n"
 "Last-Translator: Dražen Odobašić <dodobasic@gmail.com>\n"
 "Language-Team:  <david@pleyades.net>\n"
@@ -130,7 +130,8 @@ msgstr "Uvijek prikaži prvu karticu"
 msgid "Show tab close button"
 msgstr "Prikaži gumb za zatvaranje kartice"
 
-msgid "Toggle scrollbar"
+#, fuzzy
+msgid "Show scrollbar"
 msgstr "Prikaži kliznu traku"
 
 msgid "Set audible bell"

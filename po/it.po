@@ -5,143 +5,146 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-02 11:16+0200\n"
-"PO-Revision-Date: 2008-12-25 19:01+0100\n"
-"Last-Translator: Fontana Nicola <nicola@entidi.id>\n"
-"Language-Team:  <nicola@entidi.it>\n"
+"POT-Creation-Date: 2009-12-21 14:14+0100\n"
+"PO-Revision-Date: 2009-12-19 12:07+0100\n"
+"Last-Translator: Mattia Bertoni <tia.tif@fastwebnet.it>\n"
+"Language-Team: sakura-it <nicola@entidi.it>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Print version number"
-msgstr "Stampare il numero di versione"
+msgstr "Stampa il numero di versione"
 
 msgid "Select initial terminal font"
-msgstr "Selezionare il font iniziale"
+msgstr "Seleziona il font iniziale"
 
 msgid "Select initial number of tabs"
-msgstr "Selezionare il numero di schede iniziale"
+msgstr "Seleziona il numero di schede iniziali"
 
 msgid "Execute command"
-msgstr "Eseguire comando"
+msgstr "Esegui il comando"
 
 msgid "Login shell"
-msgstr ""
+msgstr "Shell di login"
 
 msgid "Set window title"
-msgstr ""
+msgstr "Imposta il titolo della finestra"
 
 msgid "Set columns number"
-msgstr ""
+msgstr "Imposta il numero di colonne"
 
 msgid "Set rows number"
-msgstr ""
+msgstr "Imposta il numero di righe"
 
 msgid "Hold window after execute command"
-msgstr ""
+msgstr "Blocca la finestra dopo l'esecuzione di un comando"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "There are %d tabs opened.\n"
 "\n"
 "Do you really want to close Sakura?"
-msgstr "Più schede aperte. Vuoi comunque chiudere Sakura?"
+msgstr ""
+"Ci sono %d schede aperte.\n"
+"\n"
+"Vuoi realmente chiudere Sakura?"
 
 msgid "Select font"
-msgstr "Selezionare il font"
+msgstr "Seleziona il font"
 
 msgid "Set name"
-msgstr "Impostare il nome"
+msgstr "Imposta il nome"
 
-#, fuzzy
 msgid "New tab text"
 msgstr "Nuova scheda"
 
 msgid "Select color"
-msgstr "Selezionare il colore"
+msgstr "Seleziona il colore"
 
 msgid "Select foreground color:"
-msgstr "Selezionare il colore del testo"
+msgstr "Seleziona il colore del testo:"
 
 msgid "Select background color:"
-msgstr "Selezionare il colore dello sfondo"
+msgstr "Seleziona il colore dello sfondo:"
 
 msgid "Opacity"
-msgstr ""
+msgstr "Opacità"
 
 msgid "Opacity level (%):"
-msgstr ""
+msgstr "Livello di opacità (%):"
 
 msgid "Disable opacity"
-msgstr ""
+msgstr "Disabilita l'opacità"
 
-#, fuzzy
 msgid "New window title"
-msgstr "Impostare il nome..."
+msgstr "Nuovo titolo della finestra"
 
 msgid "Select a background file"
-msgstr "Selezionare il file di background"
+msgstr "Seleziona un file di sfondo"
 
 msgid "Open link..."
-msgstr "Aprire collegamento..."
+msgstr "Apri il collegamento..."
 
 msgid "Copy link..."
-msgstr ""
+msgstr "Copia il link..."
 
 msgid "New tab"
 msgstr "Nuova scheda"
 
 msgid "Set name..."
-msgstr "Impostare il nome..."
+msgstr "Imposta il nome..."
 
 msgid "Close tab"
-msgstr "Chiudere scheda"
+msgstr "Chiudi la scheda"
 
 msgid "Full screen"
-msgstr ""
+msgstr "Schermo intero"
 
 msgid "Copy"
-msgstr ""
+msgstr "Copia"
 
 msgid "Paste"
-msgstr ""
+msgstr "Incolla"
 
 msgid "Select font..."
-msgstr "Selezionare il font..."
+msgstr "Seleziona il font..."
 
 msgid "Select colors..."
-msgstr "Selezionare i colori..."
+msgstr "Seleziona i colori..."
 
 msgid "Select background..."
-msgstr "Selezionare lo sfondo..."
+msgstr "Seleziona lo sfondo..."
 
 msgid "Clear background"
-msgstr "Pulizia sfondo"
+msgstr "Ripristina lo sfondo"
 
 msgid "Set opacity level..."
-msgstr ""
+msgstr "Imposta il livello di opacità..."
 
-#, fuzzy
 msgid "Set window title..."
-msgstr "Impostare il nome..."
+msgstr "Imposta il titolo della finestra..."
 
 msgid "Show always first tab"
-msgstr "Mostrare sempre la prima scheda"
+msgstr "Mostra sempre la prima scheda"
 
 msgid "Show tab close button"
-msgstr ""
+msgstr "Mostra il bottone di chiusura"
 
-msgid "Toggle scrollbar"
-msgstr ""
+msgid "Show scrollbar"
+msgstr "Visualizza la barra di scorrimento"
 
 msgid "Set audible bell"
-msgstr ""
+msgstr "Imposta l'avviso acustico"
 
 msgid "Set visible bell"
-msgstr ""
+msgstr "Imposta l'avviso visivo"
 
 msgid "Set blinking cursor"
-msgstr ""
+msgstr "Imposta il cursore lampeggiante"
 
 msgid "Input methods"
 msgstr "Metodi di input"
@@ -150,14 +153,14 @@ msgid "Options"
 msgstr "Opzioni"
 
 msgid "Set palette"
-msgstr ""
+msgstr "Imposta la tavolozza dei colori"
 
 #, c-format
 msgid "Terminal %d"
 msgstr "Terminale %d"
 
 msgid "- vte-based terminal emulator"
-msgstr "- emulatore di terminale basato su libvte"
+msgstr "- emulatore di terminale basato su VTE"
 
 #, c-format
 msgid "sakura version is %s\n"

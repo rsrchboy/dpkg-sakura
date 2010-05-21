@@ -2,12 +2,12 @@
 # Copyright (C) 2008 David Gómez
 # This file is distributed under the same license as the Sakura package.
 # Mario Blättermann <Mario Blättermann@t-online.de>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-02 11:16+0200\n"
+"POT-Creation-Date: 2009-12-21 14:14+0100\n"
 "PO-Revision-Date: 2009-10-21 11:48+0100\n"
 "Last-Translator: Thorsten Mühlfelder <thenktor@gmx.de>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -132,7 +132,7 @@ msgstr "Immer den ersten Reiter zeigen"
 msgid "Show tab close button"
 msgstr "Zeige Schließen-Knopf auf jedem Reiter"
 
-msgid "Toggle scrollbar"
+msgid "Show scrollbar"
 msgstr "Scrollbalken anzeigen"
 
 msgid "Set audible bell"
@@ -164,6 +164,5 @@ msgstr "- vte-basierter Terminal-Emulator"
 msgid "sakura version is %s\n"
 msgstr "Sakura-Version ist %s\n"
 
-#~ msgid "Show scrollbar"
+#~ msgid "Toggle scrollbar"
 #~ msgstr "Scrollbalken anzeigen"
-
