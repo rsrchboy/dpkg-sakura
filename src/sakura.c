@@ -165,6 +165,8 @@ static struct {
 	bool audible_bell;
 	bool visible_bell;
 	bool blinking_cursor;
+	bool borderless;
+	bool maximized;
 	bool full_screen;
 	bool keep_fc; /* Global flag to indicate that we don't want changes in the files and columns values */
 	GtkWidget *item_clear_background; /* We include here only the items which need to be hided */
@@ -198,10 +200,11 @@ static struct {
 struct terminal {
 	GtkWidget *hbox;
 	GtkWidget *vte;     /* Reference to VTE terminal */
-	pid_t pid;          /* pid of the forked proccess */
+	GPid pid;          /* pid of the forked proccess */
 	GtkWidget *scrollbar;
 	GtkWidget *label;
 	gchar *label_text;
+	GtkBorder border;   /* inner-property data */
 };
 
 
@@ -229,6 +232,7 @@ struct terminal {
 #define DEFAULT_PASTE_KEY  GDK_V
 #define DEFAULT_SCROLLBAR_KEY  GDK_S
 #define DEFAULT_FULLSCREEN_KEY  GDK_F11
+#define ERROR_BUFFER_LENGTH 256
 const char cfg_group[] = "sakura";
 
 static GQuark term_data_id = 0;
@@ -290,6 +294,8 @@ static guint    sakura_key_file_get_key(GKeyFile *, const gchar *, const gchar *
 
 static const char *option_font;
 static const char *option_execute;
+static gchar **option_xterm_args;
+static gboolean option_xterm_execute=FALSE;
 static gboolean option_version=FALSE;
 static gint option_ntabs=1;
 static gint option_login = FALSE;
@@ -302,7 +308,9 @@ static GOptionEntry entries[] = {
 	{ "version", 'v', 0, G_OPTION_ARG_NONE, &option_version, N_("Print version number"), NULL },
 	{ "font", 'f', 0, G_OPTION_ARG_STRING, &option_font, N_("Select initial terminal font"), NULL },
 	{ "ntabs", 'n', 0, G_OPTION_ARG_INT, &option_ntabs, N_("Select initial number of tabs"), NULL },
-	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &option_execute, N_("Execute command"), NULL },
+	{ "execute", 'x', 0, G_OPTION_ARG_STRING, &option_execute, N_("Execute command"), NULL },
+	{ "xterm-execute", 'e', 0, G_OPTION_ARG_NONE, &option_xterm_execute, N_("Execute command (xterm compatible)"), NULL },
+	{ G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &option_xterm_args, NULL, NULL },
 	{ "login", 'l', 0, G_OPTION_ARG_NONE, &option_login, N_("Login shell"), NULL },
 	{ "title", 't', 0, G_OPTION_ARG_STRING, &option_title, N_("Set window title"), NULL },
 	{ "columns", 'c', 0, G_OPTION_ARG_INT, &option_columns, N_("Set columns number"), NULL },
@@ -339,7 +347,8 @@ gboolean sakura_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_
 
 	/* switch_tab_accelerator + number pressed / switch_tab_accelerator + Left-Right cursor */
 	if ( (event->state & sakura.switch_tab_accelerator) == sakura.switch_tab_accelerator ) {
-		if ((event->keyval>=GDK_1) && (event->keyval<=GDK_9)) {
+		if ((event->keyval>=GDK_1) && (event->keyval<=GDK_9) && (event->keyval<=GDK_1-1+npages)
+				&& (event->keyval!=GDK_1+gtk_notebook_get_current_page(GTK_NOTEBOOK(sakura.notebook)))) {
 			switch(event->keyval) {
 				case GDK_1: topage=0; break;
 				case GDK_2: topage=1; break;
@@ -372,7 +381,10 @@ gboolean sakura_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_
 	}
 
 	/* copy_accelerator-[C/V] pressed */
+	SAY("copy acc: %d", sakura.copy_accelerator);
+	SAY("ev+copy: %d", (event->state & sakura.copy_accelerator));
 	if ( (event->state & sakura.copy_accelerator)==sakura.copy_accelerator ) {
+		SAY("%d %d", event->keyval, sakura.copy_key);
 		if (event->keyval==sakura.copy_key) {
 			sakura_copy(NULL, NULL);
 			return TRUE;
@@ -573,7 +585,7 @@ sakura_title_changed (GtkWidget *widget, void *data)
 
 	if ( (title!=NULL) && (g_strcmp0(title, "") !=0) ) {
 		chopped_title = g_strndup(title, 40); /* Should it be configurable? */
-		gtk_label_set_text(GTK_LABEL(term->label), chopped_title); 
+		gtk_label_set_text(GTK_LABEL(term->label), chopped_title);
 		gtk_window_set_title(GTK_WINDOW(sakura.main_window), window_title);
 		free(chopped_title);
 	} else { /* Use the default values */
@@ -998,6 +1010,9 @@ sakura_copy_url (GtkWidget *widget, void *data)
 
 	clip = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
 	gtk_clipboard_set_text(clip, sakura.current_match, -1 );
+	clip = gtk_clipboard_get(GDK_SELECTION_PRIMARY);
+	gtk_clipboard_set_text(clip, sakura.current_match, -1 );
+
 }
 
 
@@ -1175,6 +1190,32 @@ sakura_blinking_cursor (GtkWidget *widget, void *data)
 	} else {
 		vte_terminal_set_cursor_blink_mode (VTE_TERMINAL(term->vte), VTE_CURSOR_BLINK_OFF);
 		g_key_file_set_value(sakura.cfg, cfg_group, "blinking_cursor", "No");
+	}
+}
+
+
+static void
+sakura_borderless (GtkWidget *widget, void *data)
+{
+	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widget))) {
+		gtk_window_set_decorated (GTK_WINDOW(sakura.main_window), FALSE);
+		g_key_file_set_value(sakura.cfg, cfg_group, "borderless", "Yes");
+	} else {
+		gtk_window_set_decorated (GTK_WINDOW(sakura.main_window), TRUE);
+		g_key_file_set_value(sakura.cfg, cfg_group, "borderless", "No");
+	}
+}
+
+
+static void
+sakura_maximized (GtkWidget *widget, void *data)
+{
+	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widget))) {
+		gtk_window_maximize (GTK_WINDOW(sakura.main_window));
+		g_key_file_set_value(sakura.cfg, cfg_group, "maximized", "Yes");
+	} else {
+		gtk_window_unmaximize (GTK_WINDOW(sakura.main_window));
+		g_key_file_set_value(sakura.cfg, cfg_group, "maximized", "No");
 	}
 }
 
@@ -1424,6 +1465,10 @@ sakura_init()
 
 	term_data_id = g_quark_from_static_string("sakura_term");
 
+	/* Harcode TERM enviroment variable. With versions of vte>=0.26.0 behaviour seems to be different
+	   and if TERM is not defined we get errors from several applications */
+	g_setenv("TERM", "xterm", FALSE);
+
 	/* Config file initialization*/
 	sakura.cfg = g_key_file_new();
 
@@ -1556,6 +1601,20 @@ sakura_init()
 	}
 	cfgtmp = g_key_file_get_value(sakura.cfg, cfg_group, "blinking_cursor", NULL);
 	sakura.blinking_cursor= (strcmp(cfgtmp, "Yes")==0) ? 1 : 0;
+	g_free(cfgtmp);
+
+	if (!g_key_file_has_key(sakura.cfg, cfg_group, "borderless", NULL)) {
+		g_key_file_set_value(sakura.cfg, cfg_group, "borderless", "No");
+	}
+	cfgtmp = g_key_file_get_value(sakura.cfg, cfg_group, "borderless", NULL);
+	sakura.borderless= (strcmp(cfgtmp, "Yes")==0) ? 1 : 0;
+	g_free(cfgtmp);
+
+	if (!g_key_file_has_key(sakura.cfg, cfg_group, "maximized", NULL)) {
+		g_key_file_set_value(sakura.cfg, cfg_group, "maximized", "No");
+	}
+	cfgtmp = g_key_file_get_value(sakura.cfg, cfg_group, "maximized", NULL);
+	sakura.maximized= (strcmp(cfgtmp, "Yes")==0) ? 1 : 0;
 	g_free(cfgtmp);
 
 	if (!g_key_file_has_key(sakura.cfg, cfg_group, "word_chars", NULL)) {
@@ -1739,7 +1798,7 @@ sakura_init_popup()
 	          *item_select_background, *item_set_title, *item_full_screen,
 	          *item_toggle_scrollbar, *item_options, *item_input_methods,
 	          *item_opacity_menu, *item_show_first_tab, *item_audible_bell, *item_visible_bell,
-                  *item_blinking_cursor,
+	          *item_blinking_cursor, *item_borderless_maximized,
 	          *item_palette, *item_palette_tango, *item_palette_linux, *item_palette_xterm, *item_palette_rxvt,
 	          *item_show_close_button;
 	GtkAction *action_open_link, *action_copy_link, *action_new_tab, *action_set_name, *action_close_tab,
@@ -1789,6 +1848,7 @@ sakura_init_popup()
 	item_audible_bell=gtk_check_menu_item_new_with_label(_("Set audible bell"));
 	item_visible_bell=gtk_check_menu_item_new_with_label(_("Set visible bell"));
 	item_blinking_cursor=gtk_check_menu_item_new_with_label(_("Set blinking cursor"));
+	item_borderless_maximized=gtk_check_menu_item_new_with_label(_("Borderless and maximized"));
 	item_input_methods=gtk_menu_item_new_with_label(_("Input methods"));
 	item_palette_tango=gtk_radio_menu_item_new_with_label(NULL, "Tango");
 	item_palette_linux=gtk_radio_menu_item_new_with_label_from_widget(GTK_RADIO_MENU_ITEM(item_palette_tango), "Linux");
@@ -1830,6 +1890,10 @@ sakura_init_popup()
 
 	if (sakura.blinking_cursor) {
 		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item_blinking_cursor), TRUE);
+	}
+
+	if (sakura.borderless && sakura.maximized) {
+		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item_borderless_maximized), TRUE);
 	}
 
 	cfgtmp = g_key_file_get_string(sakura.cfg, cfg_group, "palette", NULL);
@@ -1880,6 +1944,7 @@ sakura_init_popup()
 	gtk_menu_shell_append(GTK_MENU_SHELL(options_menu), item_audible_bell);
 	gtk_menu_shell_append(GTK_MENU_SHELL(options_menu), item_visible_bell);
 	gtk_menu_shell_append(GTK_MENU_SHELL(options_menu), item_blinking_cursor);
+	gtk_menu_shell_append(GTK_MENU_SHELL(options_menu), item_borderless_maximized);
 	gtk_menu_shell_append(GTK_MENU_SHELL(options_menu), gtk_separator_menu_item_new());
 	gtk_menu_shell_append(GTK_MENU_SHELL(options_menu), item_set_title);
 	gtk_menu_shell_append(GTK_MENU_SHELL(options_menu), item_opacity_menu);
@@ -1896,7 +1961,7 @@ sakura_init_popup()
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(item_options), options_menu);
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(item_palette), palette_menu);
 
-	//gtk_menu_shell_append(GTK_MENU_SHELL(sakura.labels_menu), item_label_new_tab); 
+	//gtk_menu_shell_append(GTK_MENU_SHELL(sakura.labels_menu), item_label_new_tab);
 
 	/* ... and finally assign callbacks to menuitems */
 	g_signal_connect(G_OBJECT(action_new_tab), "activate", G_CALLBACK(sakura_new_tab), NULL);
@@ -1916,6 +1981,8 @@ sakura_init_popup()
 	g_signal_connect(G_OBJECT(item_audible_bell), "activate", G_CALLBACK(sakura_audible_bell), NULL);
 	g_signal_connect(G_OBJECT(item_visible_bell), "activate", G_CALLBACK(sakura_visible_bell), NULL);
 	g_signal_connect(G_OBJECT(item_blinking_cursor), "activate", G_CALLBACK(sakura_blinking_cursor), NULL);
+	g_signal_connect(G_OBJECT(item_borderless_maximized), "activate", G_CALLBACK(sakura_borderless), NULL);
+	g_signal_connect(G_OBJECT(item_borderless_maximized), "activate", G_CALLBACK(sakura_maximized), NULL);
 	g_signal_connect(G_OBJECT(action_opacity), "activate", G_CALLBACK(sakura_opacity_dialog), NULL);
 	g_signal_connect(G_OBJECT(action_set_title), "activate", G_CALLBACK(sakura_set_title_dialog), NULL);
 	g_signal_connect(G_OBJECT(item_palette_tango), "activate", G_CALLBACK(sakura_set_palette), "tango");
@@ -2031,6 +2098,8 @@ sakura_set_size(gint columns, gint rows)
 	//sakura.rows = rows;
 
 	vte_terminal_get_padding(VTE_TERMINAL(term->vte), (int *)&pad_x, (int *)&pad_y);
+	gtk_widget_style_get(term->vte, "inner-border", &term->border, NULL);
+	SAY("l%d r%d t%d b%d", term->border.left, term->border.right, term->border.top, term->border.bottom);
 	char_width = vte_terminal_get_char_width(VTE_TERMINAL(term->vte));
 	char_height = vte_terminal_get_char_height(VTE_TERMINAL(term->vte));
 
@@ -2051,6 +2120,7 @@ sakura_set_size(gint columns, gint rows)
 	sakura.height = main_request.height - term_request.height;
 	sakura.width += pad_x + char_width * sakura.columns;
 	sakura.height += pad_y + char_height * sakura.rows;
+	/* FIXME: Deprecated GTK_WIDGET_MAPPED. Replace it when gtk+-2.20 is widely used */
 	if (GTK_WIDGET_MAPPED (sakura.main_window)) {
 		gtk_window_resize (GTK_WINDOW (sakura.main_window), sakura.width, sakura.height);
 		SAY("Resizing to %ld columns %ld rows", sakura.columns, sakura.rows);
@@ -2192,35 +2262,51 @@ sakura_add_tab()
 		}
 		sakura_set_size(sakura.columns, sakura.rows);
 
-		if (option_execute) {
+		if (option_execute||option_xterm_execute) {
 			int command_argc; char **command_argv;
 			GError *gerror;
 			gchar *path;
 
-			if (!g_shell_parse_argv(option_execute, &command_argc, &command_argv, &gerror)) {
-				sakura_error("Cannot parse command line arguments");
-				exit(1);
+			if(option_execute) {
+				if (!g_shell_parse_argv(option_execute, &command_argc, &command_argv, &gerror)) {
+					sakura_error("Cannot parse command line arguments");
+					exit(1);
+				}
+			} else {
+				gchar *command_joined;
+				/* the xterm -e command takes all extra arguments */
+				command_joined = g_strjoinv(" ", option_xterm_args);
+				if (!g_shell_parse_argv(command_joined, &command_argc, &command_argv, &gerror)) {
+					sakura_error("Cannot parse command line arguments");
+					exit(1);
+				}
+				g_free(command_joined);
 			}
 
 			/* Check if the command is valid */
 			path=g_find_program_in_path(command_argv[0]);
-			if (path)
+			if (path) {
 				free(path);
-			else
+			} else {
 				option_execute=NULL;
+				g_strfreev(option_xterm_args);
+				option_xterm_args=NULL;
+			}
 
-			term->pid=vte_terminal_fork_command(VTE_TERMINAL(term->vte), command_argv[0],
-			                                    command_argv, NULL, cwd, FALSE, FALSE, FALSE);
+			vte_terminal_fork_command_full(VTE_TERMINAL(term->vte), VTE_PTY_DEFAULT, NULL, command_argv, NULL, 
+										   G_SPAWN_SEARCH_PATH, NULL, NULL, &term->pid, NULL);
 			g_strfreev(command_argv);
 			option_execute=NULL;
-		} else {
+			g_strfreev(option_xterm_args);
+			option_xterm_args=NULL;
+		} else { /* No execute option */
 			if (option_hold==TRUE) {
 				sakura_error("Hold option given without any command");
 				option_hold=FALSE;
 			}
-			/* sakura.argv[0] cannot be used as a parameter, it's different for login shells */
-			term->pid=vte_terminal_fork_command(VTE_TERMINAL(term->vte), g_getenv("SHELL"),
-			                                    sakura.argv, NULL, cwd, FALSE, FALSE, FALSE);
+			/* TODO: Check the new command_full works ok with login shells */
+			vte_terminal_fork_command_full(VTE_TERMINAL(term->vte), VTE_PTY_DEFAULT, cwd, sakura.argv, NULL,
+										   G_SPAWN_SEARCH_PATH, NULL, NULL, &term->pid, NULL);
 		}
 	/* Not the first tab */
 	} else {
@@ -2236,8 +2322,8 @@ sakura_add_tab()
 		 * function in the window is not visible *sigh*. Gtk documentation
 		 * says this is for "historical" reasons. Me arse */
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(sakura.notebook), index);
-		term->pid=vte_terminal_fork_command(VTE_TERMINAL(term->vte), g_getenv("SHELL"),
-		                                    sakura.argv, NULL, cwd, FALSE, FALSE, FALSE);
+		vte_terminal_fork_command_full(VTE_TERMINAL(term->vte), VTE_PTY_DEFAULT, cwd, sakura.argv, NULL,
+									   G_SPAWN_SEARCH_PATH, NULL, NULL, &term->pid, NULL);
 	}
 
 	free(cwd);
@@ -2272,6 +2358,11 @@ sakura_add_tab()
 	/* Disable stupid blinking cursor */
 	vte_terminal_set_cursor_blink_mode (VTE_TERMINAL(term->vte), sakura.blinking_cursor ? VTE_CURSOR_BLINK_ON : VTE_CURSOR_BLINK_OFF);
 
+	/* Apply user defined window configuration */
+	gtk_window_set_decorated (GTK_WINDOW(sakura.main_window), sakura.borderless ? FALSE : TRUE);
+	if (sakura.maximized) {
+		gtk_window_maximize (GTK_WINDOW(sakura.main_window));
+	}
 
 	/* Grrrr. Why the fucking label widget in the notebook STEAL the fucking focus? */
 	gtk_widget_grab_focus(term->vte);
@@ -2391,15 +2482,18 @@ sakura_error(const char *format, ...)
 {
 	GtkWidget *dialog;
 	va_list args;
+	char* buff;
 
 	va_start(args, format);
+	buff = malloc(sizeof(char)*ERROR_BUFFER_LENGTH);
+	vsnprintf(buff, sizeof(char)*ERROR_BUFFER_LENGTH, format, args);
+	va_end(args);
 
 	dialog = gtk_message_dialog_new(GTK_WINDOW(sakura.main_window), GTK_DIALOG_DESTROY_WITH_PARENT,
-	                                GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, format, args);
+	                                GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", buff);
 	gtk_dialog_run (GTK_DIALOG (dialog));
-
-	va_end(args);
 	gtk_widget_destroy (dialog);
+	free(buff);
 }
 
 
@@ -2411,6 +2505,10 @@ main(int argc, char **argv)
 	GError *error=NULL;
 	GOptionContext *context;
 	int i;
+	int n;
+	char **nargv;
+	nargv = (char**)malloc((argc+1)*sizeof(char*));
+	int nargc=argc;
 
 	/* Localization */
 	setlocale(LC_ALL, "");
@@ -2419,12 +2517,28 @@ main(int argc, char **argv)
 	bindtextdomain(GETTEXT_PACKAGE, localedir);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
+	/* Rewrites argv to include a -- after the -e argument this is required to make
+	 * sure GOption doesn't grab any arguments meant for the command being called */
+	n=0;
+	for(i=0; i<argc; i++) {
+		if(g_strcmp0(argv[i],"-e") == 0)
+		{
+			nargv[n]="-e";
+			n++;
+			nargv[n]="--";
+			nargc = argc+1;
+		} else {
+			nargv[n]=g_strdup(argv[i]);
+		}
+		n++;
+	}
+
 	/* Options parsing */
 	context = g_option_context_new (_("- vte-based terminal emulator"));
 	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
 	g_option_group_set_translation_domain(gtk_get_option_group(TRUE), GETTEXT_PACKAGE);
 	g_option_context_add_group (context, gtk_get_option_group(TRUE));
-	g_option_context_parse (context, &argc, &argv, &error);
+	g_option_context_parse (context, &nargc, &nargv, &error);
 
 	if (option_version) {
 		fprintf(stderr, _("sakura version is %s\n"), VERSION);
@@ -2437,7 +2551,9 @@ main(int argc, char **argv)
 
 	g_option_context_free(context);
 
-	gtk_init(&argc, &argv);
+	gtk_init(&nargc, &nargv);
+
+	g_strfreev(nargv);
 
 	/* Init stuff */
 	sakura_init();

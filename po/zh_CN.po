@@ -7,14 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura 1.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 14:36+0900\n"
+"POT-Creation-Date: 2011-01-25 00:33+0900\n"
 "PO-Revision-Date: 2010-03-19 15:00+0000\n"
 "Last-Translator: Heling Yao <Unknown>\n"
 "Language-Team: Chinese/Simplified <i18n-translation@lists.linux.net.cn>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-22 04:45+0000\n"
+"X-Launchpad-Export-Date: 2010-04-15 03:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 msgid "Print version number"
@@ -27,6 +28,10 @@ msgid "Select initial number of tabs"
 msgstr "选择初始标签数"
 
 msgid "Execute command"
+msgstr "执行命令"
+
+#, fuzzy
+msgid "Execute command (xterm compatible)"
 msgstr "执行命令"
 
 msgid "Login shell"
@@ -161,6 +166,9 @@ msgstr "设置可视提醒"
 
 msgid "Set blinking cursor"
 msgstr "设置闪烁光标"
+
+msgid "Borderless and maximized"
+msgstr ""
 
 msgid "Input methods"
 msgstr "输入法"
