@@ -5,8 +5,9 @@ sakura (2.4.0-1) UNRELEASED; urgency=low
 
   [ Andrew Starr-Bochicchio ]
   * New upstream release.
-  * debian/control: Bump Standards-Version to 3.9.1,
-    no changes needed.
+  * debian/control:
+   - Bump Standards-Version to 3.9.1, no changes needed.
+   - Bump libgtk2.0-dev and libvte-dev build deps.
 
  -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Sat, 12 Feb 2011 12:32:16 -0500
 
