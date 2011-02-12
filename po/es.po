@@ -5,14 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-09 03:47+0900\n"
-"PO-Revision-Date: 2010-03-09 15:20+0000\n"
+"POT-Creation-Date: 2011-01-25 00:33+0900\n"
+"PO-Revision-Date: 2010-04-09 19:59+0000\n"
 "Last-Translator: David Gómez <david@pleyades.net>\n"
 "Language-Team: <davidge@pleyades.net>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-22 04:45+0000\n"
+"X-Launchpad-Export-Date: 2010-04-10 03:45+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 msgid "Print version number"
@@ -25,6 +26,10 @@ msgid "Select initial number of tabs"
 msgstr "Seleccionar el número inicial de pestañas"
 
 msgid "Execute command"
+msgstr "Ejecutar comando"
+
+#, fuzzy
+msgid "Execute command (xterm compatible)"
 msgstr "Ejecutar comando"
 
 msgid "Login shell"
@@ -158,6 +163,9 @@ msgstr "Activar campana visible"
 
 msgid "Set blinking cursor"
 msgstr "Activar parpadeo del cursor"
+
+msgid "Borderless and maximized"
+msgstr ""
 
 msgid "Input methods"
 msgstr "Métodos de entrada"
