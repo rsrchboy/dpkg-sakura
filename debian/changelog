@@ -1,4 +1,4 @@
-sakura (2.4.2-1) UNRELEASED; urgency=low
+sakura (2.4.2-1) unstable; urgency=low
 
   [ Norbert Preining ]
   * Change the vcs locations in debian/control.
@@ -10,7 +10,7 @@ sakura (2.4.2-1) UNRELEASED; urgency=low
    - Bump libgtk2.0-dev and libvte-dev build deps.
    - Update Vcs-Browser field again due to Aloith changes.  
 
- -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Sat, 12 Feb 2011 12:32:16 -0500
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Tue, 02 Aug 2011 13:49:13 -0400
 
 sakura (2.3.8-1) unstable; urgency=low
 
