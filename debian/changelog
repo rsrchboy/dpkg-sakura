@@ -1,4 +1,4 @@
-sakura (2.4.0-1) UNRELEASED; urgency=low
+sakura (2.4.2-1) UNRELEASED; urgency=low
 
   [ Norbert Preining ]
   * Change the vcs locations in debian/control.
