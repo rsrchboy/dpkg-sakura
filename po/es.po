@@ -5,16 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-25 00:33+0900\n"
-"PO-Revision-Date: 2010-04-09 19:59+0000\n"
+"POT-Creation-Date: 2011-06-23 10:08+0200\n"
+"PO-Revision-Date: 2011-02-21 11:10+0000\n"
 "Last-Translator: David Gómez <david@pleyades.net>\n"
 "Language-Team: <davidge@pleyades.net>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-10 03:45+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-05-18 04:33+0000\n"
+"X-Generator: Launchpad (build 12959)\n"
 
 msgid "Print version number"
 msgstr "Imprimir número de versión"
@@ -28,9 +28,8 @@ msgstr "Seleccionar el número inicial de pestañas"
 msgid "Execute command"
 msgstr "Ejecutar comando"
 
-#, fuzzy
 msgid "Execute command (xterm compatible)"
-msgstr "Ejecutar comando"
+msgstr "Ejecutar comando (compatible con xterm)"
 
 msgid "Login shell"
 msgstr "Shell de login"
@@ -49,6 +48,9 @@ msgstr "Mantener la ventana tras el final del comando"
 
 msgid "X geometry specification"
 msgstr "Especificación de geometría de las X"
+
+msgid "Configuration has been modified by another proccess. Overwrite?"
+msgstr "La configuración ha sido modificada por otro proceso. ¿Sobreescribir?"
 
 msgid ""
 "There are running processes.\n"
@@ -109,9 +111,8 @@ msgstr "Copiar enlace..."
 msgid "New tab"
 msgstr "Nueva pestaña"
 
-#, fuzzy
 msgid "New window"
-msgstr "Nuevo título de la venta"
+msgstr "Nueva ventana"
 
 msgid "Set name..."
 msgstr "Elegir nombre"
@@ -147,7 +148,7 @@ msgid "Set window title..."
 msgstr "Definir nombre de la ventana"
 
 msgid "Always show tab bar"
-msgstr ""
+msgstr "Mostrar siempre la barra de pestañas"
 
 msgid "Show tab close button"
 msgstr "Mostrar boton para cerrar pestaña"
@@ -165,7 +166,7 @@ msgid "Set blinking cursor"
 msgstr "Activar parpadeo del cursor"
 
 msgid "Borderless and maximized"
-msgstr ""
+msgstr "Sin borde y maximizada"
 
 msgid "Input methods"
 msgstr "Métodos de entrada"
@@ -187,9 +188,3 @@ msgstr "- emulador de terminal basado en libvte"
 #, c-format
 msgid "sakura version is %s\n"
 msgstr "La versión de sakura es %s\n"
-
-#~ msgid "Show always first tab"
-#~ msgstr "Mostrar siempre la primera pestaña"
-
-#~ msgid "New tab text"
-#~ msgstr "Nuevo título de la pestaña"
