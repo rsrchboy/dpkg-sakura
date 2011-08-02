@@ -10,7 +10,7 @@ Build-Depends:	debhelper (>= 7.0.50~),
 		libvte-dev (>= 1:0.26)
 Standards-Version: 3.9.1
 Vcs-Git: git://git.debian.org/git/collab-maint/sakura.git
-Vcs-Browser: http://git.debian.org/?p=collab-maint/sakura.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/sakura.git;a=summary
 Homepage: http://www.pleyades.net/david/sakura.php
 
 Package: sakura
