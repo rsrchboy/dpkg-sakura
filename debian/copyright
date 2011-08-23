@@ -6,11 +6,10 @@ Original-Source: http://www.pleyades.net/david/sakura.php
 Files: *
 Copyright: 2006-2008, David Gómez <david@pleyades.net>,
            2008, Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
-License: GPL-2+
+License: GPL-2
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+    the Free Software Foundation, version 2.
     .
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -25,7 +24,7 @@ License: GPL-2+
     Public License can be found in the /usr/share/common-licenses/GPL-2 file.
 
 Files: debian/*
-Copyright: 2008, Andrew Starr-Bochicchio <a.starr.b@gmail.com> 
+Copyright: 2008-2011, Andrew Starr-Bochicchio <a.starr.b@gmail.com> 
 License: GPL-2+
 
 Files: terminal-tango.svg, debian/terminal-tango.xpm
