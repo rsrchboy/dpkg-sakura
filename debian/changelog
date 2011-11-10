@@ -3,7 +3,8 @@ sakura (2.4.2-2) UNRELEASED; urgency=low
   * debian/copyright: License was mistakenly noted as
     GPL-2+. This was incorrect. It should simply be
     GPL-2 (Closes: #638971). Thanks to Wen-Yen Chuang.
-  * debian/control: Correct homepage field for new url.
+  * debian/control: Correct homepage field for new url
+    (Closes: #648363).
 
  -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Tue, 23 Aug 2011 09:06:41 -0400
 
