@@ -1,11 +1,17 @@
-Format-Specification: http://dep.debian.net/deps/dep5/
-Name: Sakura 
-Maintainer: David Gómez <david@pleyades.net>
-Original-Source: http://www.pleyades.net/david/sakura.php
+Format: http://dep.debian.net/deps/dep5/
+Upstream-Name: Sakura 
+Upstream-Contact: David Gómez <david@pleyades.net>
+Source: http://www.pleyades.net/david/sakura.php
 
 Files: *
-Copyright: 2006-2008, David Gómez <david@pleyades.net>,
+Copyright: 2006-2008, David Gómez <david@pleyades.net>
            2008, Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+License: GPL-2
+
+Files: debian/*
+Copyright: 2008-2011, Andrew Starr-Bochicchio <a.starr.b@gmail.com>
+License: GPL-2
+
 License: GPL-2
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,11 +29,8 @@ License: GPL-2
     On Debian GNU/Linux systems, the complete text of the GNU General
     Public License can be found in the /usr/share/common-licenses/GPL-2 file.
 
-Files: debian/*
-Copyright: 2008-2011, Andrew Starr-Bochicchio <a.starr.b@gmail.com> 
-License: GPL-2+
-
-Files: terminal-tango.svg, debian/terminal-tango.xpm
+Files: terminal-tango.svg
+       debian/terminal-tango.xpm
 Copyright: 2005-2009, Jakub Steiner <jimmac@gmail.com>
 X-Note: This icon part of the Tango Icon Theme. The "license" text below is from:
     /usr/share/doc/tango-icon-theme/copyright
