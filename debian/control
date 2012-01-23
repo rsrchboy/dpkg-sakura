@@ -2,12 +2,13 @@ Source: sakura
 Section: x11
 Priority: optional
 Maintainer: Andrew Starr-Bochicchio <a.starr.b@gmail.com>
-Uploaders: Andrew Lee <ajqlee@debian.org>, Norbert Preining <preining@debian.org>
-Build-Depends:	debhelper (>= 7.0.50~),
-		cmake,
-		perl,
-		libgtk2.0-dev (>= 2.16),
-		libvte-dev (>= 1:0.26)
+Uploaders: Andrew Lee <ajqlee@debian.org>,
+           Norbert Preining <preining@debian.org>
+Build-Depends: cmake,
+               debhelper (>= 7.0.50~),
+               libgtk2.0-dev (>= 2.16),
+               libvte-dev (>= 1:0.26),
+               perl
 Standards-Version: 3.9.2
 Vcs-Git: git://git.debian.org/git/collab-maint/sakura.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/sakura.git;a=summary
@@ -15,7 +16,7 @@ Homepage: http://www.pleyades.net/david/projects/sakura
 
 Package: sakura
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Provides: x-terminal-emulator
 Description: simple but powerful libvte-based terminal emulator
  Sakura is a terminal emulator based on GTK+ and VTE. It's a
