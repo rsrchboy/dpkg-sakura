@@ -1,15 +1,5 @@
 #!/usr/bin/make -f
 
-PACKAGE := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
-VERSION := $(shell dpkg-parsechangelog | sed -ne 's/^Version: \(.*\)-.*/\1/p')
-
-get-orig-source:
-	rm -rf $@
-	mkdir -p $@
-	cd $@ && wget http://www.pleyades.net/david/projects/sakura/$(PACKAGE)-$(VERSION).tar.gz
-	cd $@ && mv $(PACKAGE)-$(VERSION).tar.gz ../../$(PACKAGE)_$(VERSION).orig.tar.gz
-	rm -r $@
-
 %:
 	dh $@
 
