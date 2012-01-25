@@ -196,7 +196,7 @@ static struct {
 	gint scrollbar_key;
 	gint fullscreen_key;
 	GRegex *http_regexp;
-	char *argv[3];
+	char *argv[2];
 } sakura;
 
 struct terminal {
@@ -1824,15 +1824,13 @@ sakura_init()
 		sakura.has_rgba = false;
 	}
 
-	/* Set argv for forked childs. Real argv vector starts at argv[1] because we're
-	   using G_SPAWN_FILE_AND_ARGV_ZERO to be able to launch login shells */
-	sakura.argv[0]=g_strdup(g_getenv("SHELL"));
+	/* Set argv for forked childs */
 	if (option_login) {
-		sakura.argv[1]=g_strdup_printf("-%s", g_getenv("SHELL"));
+		sakura.argv[0]=g_strdup_printf("-%s", g_getenv("SHELL"));
 	} else {
-		sakura.argv[1]=g_strdup(g_getenv("SHELL"));
+		sakura.argv[0]=g_strdup(g_getenv("SHELL"));
 	}
-	sakura.argv[2]=NULL;
+	sakura.argv[1]=NULL;
 
 	if (option_title) {
 		gtk_window_set_title(GTK_WINDOW(sakura.main_window), option_title);
@@ -2354,7 +2352,7 @@ sakura_add_tab()
 			}
 
 			vte_terminal_fork_command_full(VTE_TERMINAL(term->vte), VTE_PTY_DEFAULT, NULL, command_argv, NULL, 
-										   G_SPAWN_SEARCH_PATH|G_SPAWN_FILE_AND_ARGV_ZERO, NULL, NULL, &term->pid, NULL);
+										   G_SPAWN_SEARCH_PATH, NULL, NULL, &term->pid, NULL);
 			g_strfreev(command_argv);
 			option_execute=NULL;
 			g_strfreev(option_xterm_args);
@@ -2366,7 +2364,7 @@ sakura_add_tab()
 			}
 			/* TODO: Check the new command_full works ok with login shells */
 			vte_terminal_fork_command_full(VTE_TERMINAL(term->vte), VTE_PTY_DEFAULT, cwd, sakura.argv, NULL,
-										   G_SPAWN_SEARCH_PATH|G_SPAWN_FILE_AND_ARGV_ZERO, NULL, NULL, &term->pid, NULL);
+										   G_SPAWN_SEARCH_PATH, NULL, NULL, &term->pid, NULL);
 		}
 	/* Not the first tab */
 	} else {
@@ -2383,7 +2381,7 @@ sakura_add_tab()
 		 * says this is for "historical" reasons. Me arse */
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(sakura.notebook), index);
 		vte_terminal_fork_command_full(VTE_TERMINAL(term->vte), VTE_PTY_DEFAULT, cwd, sakura.argv, NULL,
-									   G_SPAWN_SEARCH_PATH|G_SPAWN_FILE_AND_ARGV_ZERO, NULL, NULL, &term->pid, NULL);
+									   G_SPAWN_SEARCH_PATH, NULL, NULL, &term->pid, NULL);
 	}
 
 	free(cwd);

@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Andrew Starr-Bochicchio <a.starr.b@gmail.com>
 Uploaders: Andrew Lee <ajqlee@debian.org>,
            Norbert Preining <preining@debian.org>
+DM-Upload-Allowed: yes
 Build-Depends: cmake,
                debhelper (>= 7.0.50~),
                libgtk2.0-dev (>= 2.16),

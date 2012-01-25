@@ -1,3 +1,9 @@
+sakura (2.4.2-3) unstable; urgency=low
+
+  * set DM-Upload-Allowed to yes
+
+ -- Norbert Preining <preining@debian.org>  Wed, 25 Jan 2012 13:17:04 +0900
+
 sakura (2.4.2-2) unstable; urgency=low
 
   * debian/copyright:
