@@ -1,3 +1,12 @@
+sakura (2.4.2-4) UNRELEASED; urgency=low
+
+  * Fix FTBFS on Hurd. This patch solves the build problems
+    for GNU/Hurd due to PATH_MAX issues. The solution is to
+    make dynamic string allocations instead of using fixed
+    length buffers. Thanks to Tanguy LE CARROUR. (Closes: #887105)
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Sun, 12 Feb 2012 11:19:00 -0500
+
 sakura (2.4.2-3) unstable; urgency=low
 
   * set DM-Upload-Allowed to yes

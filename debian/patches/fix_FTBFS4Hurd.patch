@@ -1,0 +1,39 @@
+Description: Fix FTBFS on Hurd.
+  This patch solves the build problems for GNU/Hurd due to PATH_MAX
+  issues. The solution is to make dynamic string allocations instead of
+  using fixed length buffers.
+Author: Tanguy LE CARROUR <tanguy.lecarrour@gmail.com>
+Debian-Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=659018
+
+--- old/sakura-2.4.2/src/sakura.c	2012-02-03 14:18:51.789612191 +0100
++++ sakura-2.4.2/src/sakura.c	2012-02-07 11:28:35.744325950 +0100
+@@ -1378,17 +1378,27 @@
+ 
+ 	if (term->pid >= 0) {
+ 		char *file;
+-		char buf[PATH_MAX+1];
++		char *buf = NULL;
++		struct stat sb;
+ 		int len;
+ 
++		if (lstat(file, &sb) == -1) {
++			return cwd;
++		}
++		buf = malloc(sb.st_size + 1);
+ 		file = g_strdup_printf ("/proc/%d/cwd", term->pid);
+-		len = readlink (file, buf, sizeof (buf) - 1);
++		len = readlink (file, buf, sb.st_size + 1);
+ 
++		if (len < 0 || len > sb.st_size) {
++			g_free(buf);
++			return cwd;
++		}
+ 		if (len > 0 && buf[0] == '/') {
+ 			buf[len] = '\0';
+ 			cwd = g_strdup(buf);
+ 		}
+ 
++		g_free(buf);
+ 		g_free(file);
+ 	}
+ 
