@@ -1,4 +1,4 @@
-Format: http://dep.debian.net/deps/dep5/
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Sakura
 Upstream-Contact: David Gómez <david@pleyades.net>
 Source: http://www.pleyades.net/david/sakura.php
@@ -31,10 +31,10 @@ License: GPL-2
 
 Files: terminal-tango.svg
        debian/terminal-tango.xpm
-Copyright: 2005-2009, Jakub Steiner <jimmac@gmail.com>
-X-Note: This icon part of the Tango Icon Theme. The "license" text below is from:
-    /usr/share/doc/tango-icon-theme/copyright
-License: Public Domain
+X-Note: This icon part of the Tango Icon Theme. The "license" text below is
+        from: /usr/share/doc/tango-icon-theme/copyright
+Copyright: Public Domain
+License: public-domain
     In the preparation of the 0.8.90 release Novell took care of tracking
     down all the contributors to get them to relicense their artwork
     into Public Domain.

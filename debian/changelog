@@ -1,3 +1,10 @@
+sakura (2.4.2-5) UNRELEASED; urgency=low
+
+  * debian/copyright: Update for 1.0 release of the
+    machine-readable format.
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Sat, 25 Feb 2012 10:54:41 -0500
+
 sakura (2.4.2-4) unstable; urgency=low
 
   * Fix FTBFS on Hurd. This patch solves the build problems
