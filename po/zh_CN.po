@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura 1.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-23 10:08+0200\n"
-"PO-Revision-Date: 2010-04-14 06:29+0000\n"
-"Last-Translator: Heling Yao <Unknown>\n"
+"POT-Creation-Date: 2012-03-08 17:57+0100\n"
+"PO-Revision-Date: 2012-03-12 15:23+0000\n"
+"Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
 "Language-Team: Chinese/Simplified <i18n-translation@lists.linux.net.cn>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-05-18 04:33+0000\n"
-"X-Generator: Launchpad (build 12959)\n"
+"X-Launchpad-Export-Date: 2012-03-13 04:41+0000\n"
+"X-Generator: Launchpad (build 14933)\n"
 
 msgid "Print version number"
 msgstr "显示版本号"
@@ -30,8 +30,8 @@ msgstr "选择初始标签数"
 msgid "Execute command"
 msgstr "执行命令"
 
-msgid "Execute command (xterm compatible)"
-msgstr ""
+msgid "Execute command (last option in the command line)"
+msgstr "执行命令(命令行结束前执行)"
 
 msgid "Login shell"
 msgstr "登录 shell"
@@ -51,8 +51,11 @@ msgstr "运行后保留窗口"
 msgid "X geometry specification"
 msgstr "尺寸设定"
 
+msgid "Use alternate configuration file"
+msgstr "使用其他配置文件"
+
 msgid "Configuration has been modified by another proccess. Overwrite?"
-msgstr ""
+msgstr "配置文件已经被其他进程修改。覆盖吗？"
 
 msgid ""
 "There are running processes.\n"
@@ -66,11 +69,11 @@ msgstr ""
 msgid "Select font"
 msgstr "选择字体"
 
-msgid "Set name"
-msgstr "设置名称"
+msgid "Set tab name"
+msgstr "设置标签页名称"
 
-msgid "Tab new text"
-msgstr "输入文本"
+msgid "New text"
+msgstr "新文本"
 
 msgid "Select color"
 msgstr "选择颜色"
@@ -86,9 +89,6 @@ msgstr "透明度"
 
 msgid "Opacity level (%):"
 msgstr "透明度(%):"
-
-msgid "Disable opacity"
-msgstr "不透明"
 
 msgid "New window title"
 msgstr "新窗口标题"
@@ -114,11 +114,8 @@ msgstr "复制链接"
 msgid "New tab"
 msgstr "新建标签"
 
-msgid "New window"
-msgstr ""
-
-msgid "Set name..."
-msgstr "设置名称..."
+msgid "Set tab name..."
+msgstr "设置标签页名称..."
 
 msgid "Close tab"
 msgstr "关闭标签"
@@ -150,14 +147,29 @@ msgstr "设置透明度..."
 msgid "Set window title..."
 msgstr "设置窗口标题..."
 
+msgid "Options"
+msgstr "选项"
+
+msgid "More"
+msgstr "更多"
+
 msgid "Always show tab bar"
 msgstr "总是显示第一个标签页"
 
-msgid "Show tab close button"
-msgstr "显示关闭标签页按钮"
+msgid "Tabs at bottom"
+msgstr "标签页在底部"
+
+msgid "Show close button on tabs"
+msgstr "在标签上显示关闭按钮"
 
 msgid "Show scrollbar"
 msgstr "显示滚动条"
+
+msgid "Show resize grip"
+msgstr ""
+
+msgid "Don't show exit dialog"
+msgstr "不显示退出对话框"
 
 msgid "Set audible bell"
 msgstr "设定蜂鸣提醒"
@@ -168,21 +180,30 @@ msgstr "设置可视提醒"
 msgid "Set blinking cursor"
 msgstr "设置闪烁光标"
 
-msgid "Borderless and maximized"
+msgid "Set cursor type"
+msgstr "设置光标类型"
+
+msgid "Block"
 msgstr ""
 
-msgid "Input methods"
-msgstr "输入法"
+msgid "Underline"
+msgstr "下划线"
 
-msgid "Options"
-msgstr "选项"
+msgid "IBeam"
+msgstr "IBeam"
 
 msgid "Set palette"
 msgstr "设置调色板"
 
+msgid "Input methods"
+msgstr "输入法"
+
 #, c-format
 msgid "Terminal %d"
 msgstr "终端 %d"
+
+msgid "Error message"
+msgstr "错误消息"
 
 msgid "- vte-based terminal emulator"
 msgstr "- 基于 vte 的终端模拟器"

@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-23 10:08+0200\n"
-"PO-Revision-Date: 2011-04-28 11:38+0000\n"
-"Last-Translator: Jan-Christoph Borchardt <Unknown>\n"
+"POT-Creation-Date: 2012-03-08 17:57+0100\n"
+"PO-Revision-Date: 2011-11-19 23:17+0000\n"
+"Last-Translator: David Gómez <david@pleyades.net>\n"
 "Language-Team: Deutsch <de@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-05-18 04:33+0000\n"
-"X-Generator: Launchpad (build 12959)\n"
+"X-Launchpad-Export-Date: 2012-03-09 04:49+0000\n"
+"X-Generator: Launchpad (build 14914)\n"
 
 msgid "Print version number"
 msgstr "Versionsnummer anzeigen"
@@ -30,7 +30,7 @@ msgstr "Anzahl der Reiter beim Programmstart wählen"
 msgid "Execute command"
 msgstr "Befehl ausführen"
 
-msgid "Execute command (xterm compatible)"
+msgid "Execute command (last option in the command line)"
 msgstr ""
 
 msgid "Login shell"
@@ -49,10 +49,15 @@ msgid "Hold window after execute command"
 msgstr "Fenster nach Ausführen des Befehls nicht schließen"
 
 msgid "X geometry specification"
-msgstr ""
+msgstr "X-Fenstergeometrie"
+
+msgid "Use alternate configuration file"
+msgstr "Benutze alternative Konfigurationsdatei"
 
 msgid "Configuration has been modified by another proccess. Overwrite?"
 msgstr ""
+"Die Konfiguration wurde durch einen anderen Prozess geändert. Soll sie "
+"überschrieben werden?"
 
 msgid ""
 "There are running processes.\n"
@@ -66,11 +71,11 @@ msgstr ""
 msgid "Select font"
 msgstr "Schrift auswählen"
 
-msgid "Set name"
-msgstr "Name wählen"
+msgid "Set tab name"
+msgstr "Reiternamen setzen"
 
-msgid "Tab new text"
-msgstr "Reiter neuer Name"
+msgid "New text"
+msgstr "Neuer Text"
 
 msgid "Select color"
 msgstr "Farbe wählen"
@@ -86,9 +91,6 @@ msgstr "Transparenz"
 
 msgid "Opacity level (%):"
 msgstr "Transparenzgrad (%):"
-
-msgid "Disable opacity"
-msgstr "Transparenz abschalten"
 
 msgid "New window title"
 msgstr "Fenstertitel wählen"
@@ -114,11 +116,8 @@ msgstr "Kopiere Link..."
 msgid "New tab"
 msgstr "Neuer Reiter"
 
-msgid "New window"
-msgstr "Neues Fenster"
-
-msgid "Set name..."
-msgstr "Name wählen..."
+msgid "Set tab name..."
+msgstr "Reiternamen setzen..."
 
 msgid "Close tab"
 msgstr "Reiter schließen"
@@ -150,14 +149,29 @@ msgstr "Transparenzgrad wählen..."
 msgid "Set window title..."
 msgstr "Fenstertitel wählen..."
 
+msgid "Options"
+msgstr "Optionen"
+
+msgid "More"
+msgstr "Weitere"
+
 msgid "Always show tab bar"
 msgstr "Reiterleiste immer anzeigen"
 
-msgid "Show tab close button"
-msgstr "Zeige Schließen-Knopf auf jedem Reiter"
+msgid "Tabs at bottom"
+msgstr "Reiter unten"
+
+msgid "Show close button on tabs"
+msgstr "„Schließen“-Knopf auf Reitern anzeigen"
 
 msgid "Show scrollbar"
-msgstr "Scrollbalken anzeigen"
+msgstr "Bildlaufleiste anzeigen"
+
+msgid "Show resize grip"
+msgstr ""
+
+msgid "Don't show exit dialog"
+msgstr "Beenden-Dialog nicht anzeigen"
 
 msgid "Set audible bell"
 msgstr "Hörbarer Alarm"
@@ -168,21 +182,30 @@ msgstr "Sichtbarer Alarm"
 msgid "Set blinking cursor"
 msgstr "Blinkender Cursor"
 
-msgid "Borderless and maximized"
-msgstr "Rahmenlos und maximiert"
+msgid "Set cursor type"
+msgstr ""
 
-msgid "Input methods"
-msgstr "Eingabemethoden"
+msgid "Block"
+msgstr "Blockieren"
 
-msgid "Options"
-msgstr "Optionen"
+msgid "Underline"
+msgstr "Unterstreichen"
+
+msgid "IBeam"
+msgstr "IBeam"
 
 msgid "Set palette"
 msgstr "Palette"
 
+msgid "Input methods"
+msgstr "Eingabemethoden"
+
 #, c-format
 msgid "Terminal %d"
 msgstr "Terminal %d"
+
+msgid "Error message"
+msgstr "Fehlermeldung"
 
 msgid "- vte-based terminal emulator"
 msgstr "- vte-basierter Terminal-Emulator"
