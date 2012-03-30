@@ -5,16 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sakura\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-17 19:34+0200\n"
-"PO-Revision-Date: 2010-10-06 14:01+0000\n"
-"Last-Translator: nTia89 <tia.tif@fastwebnet.it>\n"
+"POT-Creation-Date: 2012-03-08 17:57+0100\n"
+"PO-Revision-Date: 2012-03-08 16:36+0000\n"
+"Last-Translator: mattia.b89 <Unknown>\n"
 "Language-Team: sakura-it <nicola@entidi.it>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-05-18 04:33+0000\n"
-"X-Generator: Launchpad (build 12959)\n"
+"X-Launchpad-Export-Date: 2012-03-09 04:49+0000\n"
+"X-Generator: Launchpad (build 14914)\n"
 "X-Poedit-Country: ITALY\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -31,8 +31,8 @@ msgstr "Seleziona il numero di schede iniziali"
 msgid "Execute command"
 msgstr "Esegui il comando"
 
-msgid "Execute command (xterm compatible)"
-msgstr ""
+msgid "Execute command (last option in the command line)"
+msgstr "Esegui il comando (l'ultima scelta nella riga di comando)"
 
 msgid "Login shell"
 msgstr "Shell di login"
@@ -52,8 +52,12 @@ msgstr "Blocca la finestra dopo l'esecuzione di un comando"
 msgid "X geometry specification"
 msgstr "Specificazione della geometria di X"
 
+msgid "Use alternate configuration file"
+msgstr "Usa un file di configurazione alternativo"
+
 msgid "Configuration has been modified by another proccess. Overwrite?"
 msgstr ""
+"La configurazione è stata modificata da un altro processo. Sovrascrivere?"
 
 msgid ""
 "There are running processes.\n"
@@ -67,11 +71,11 @@ msgstr ""
 msgid "Select font"
 msgstr "Seleziona il font"
 
-msgid "Set name"
-msgstr "Imposta il nome"
+msgid "Set tab name"
+msgstr "Imposta il nome della scheda"
 
-msgid "Tab new text"
-msgstr "Nuovo testo della scheda"
+msgid "New text"
+msgstr "Nuovo testo"
 
 msgid "Select color"
 msgstr "Seleziona il colore"
@@ -87,9 +91,6 @@ msgstr "Opacità"
 
 msgid "Opacity level (%):"
 msgstr "Livello di opacità (%):"
-
-msgid "Disable opacity"
-msgstr "Disabilita l'opacità"
 
 msgid "New window title"
 msgstr "Nuovo titolo della finestra"
@@ -115,11 +116,8 @@ msgstr "Copia il link..."
 msgid "New tab"
 msgstr "Nuova scheda"
 
-msgid "New window"
-msgstr ""
-
-msgid "Set name..."
-msgstr "Imposta il nome..."
+msgid "Set tab name..."
+msgstr "Imposta il nome di la scheda"
 
 msgid "Close tab"
 msgstr "Chiudi la scheda"
@@ -151,14 +149,29 @@ msgstr "Imposta il livello di opacità..."
 msgid "Set window title..."
 msgstr "Imposta il titolo della finestra..."
 
-msgid "Always show tab bar"
-msgstr ""
+msgid "Options"
+msgstr "Opzioni"
 
-msgid "Show tab close button"
-msgstr "Mostra il bottone di chiusura"
+msgid "More"
+msgstr "Altro"
+
+msgid "Always show tab bar"
+msgstr "Mostra sempre la barra delle schede"
+
+msgid "Tabs at bottom"
+msgstr "Schede in basso"
+
+msgid "Show close button on tabs"
+msgstr "Mostra il pulsante di chiusura sulle schede"
 
 msgid "Show scrollbar"
 msgstr "Visualizza la barra di scorrimento"
+
+msgid "Show resize grip"
+msgstr "Mostra grip di ridimensionamento"
+
+msgid "Don't show exit dialog"
+msgstr "Non mostrare il dialogo di uscita"
 
 msgid "Set audible bell"
 msgstr "Imposta l'avviso acustico"
@@ -169,21 +182,30 @@ msgstr "Imposta l'avviso visivo"
 msgid "Set blinking cursor"
 msgstr "Imposta il cursore lampeggiante"
 
-msgid "Borderless and maximized"
-msgstr ""
+msgid "Set cursor type"
+msgstr "Imposta il modello di cursore"
 
-msgid "Input methods"
-msgstr "Metodi di input"
+msgid "Block"
+msgstr "Blocco"
 
-msgid "Options"
-msgstr "Opzioni"
+msgid "Underline"
+msgstr "Sottolineato"
+
+msgid "IBeam"
+msgstr "IBeam"
 
 msgid "Set palette"
 msgstr "Imposta la tavolozza dei colori"
 
+msgid "Input methods"
+msgstr "Metodi di input"
+
 #, c-format
 msgid "Terminal %d"
 msgstr "Terminale %d"
+
+msgid "Error message"
+msgstr "Messaggio d'errore"
 
 msgid "- vte-based terminal emulator"
 msgstr "- emulatore di terminale basato su VTE"
