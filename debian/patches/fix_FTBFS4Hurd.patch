@@ -5,9 +5,11 @@ Description: Fix FTBFS on Hurd.
 Author: Tanguy LE CARROUR <tanguy.lecarrour@gmail.com>
 Debian-Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=659018
 
---- old/sakura-2.4.2/src/sakura.c	2012-02-03 14:18:51.789612191 +0100
-+++ sakura-2.4.2/src/sakura.c	2012-02-07 11:28:35.744325950 +0100
-@@ -1378,17 +1378,27 @@
+Index: sakura/src/sakura.c
+===================================================================
+--- sakura.orig/src/sakura.c	2012-03-30 10:27:53.000000000 -0400
++++ sakura/src/sakura.c	2012-03-30 10:28:48.502525868 -0400
+@@ -1419,17 +1419,27 @@
  
  	if (term->pid >= 0) {
  		char *file;
