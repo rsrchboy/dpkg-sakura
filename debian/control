@@ -7,8 +7,8 @@ Uploaders: Andrew Lee <ajqlee@debian.org>,
 DM-Upload-Allowed: yes
 Build-Depends: cmake,
                debhelper (>= 7.0.50~),
-               libgtk2.0-dev (>= 2.16),
-               libvte-dev (>= 1:0.26),
+               libgtk-3-dev,
+               libvte-dev (>= 1:0.28),
                perl
 Standards-Version: 3.9.2
 Vcs-Git: git://git.debian.org/git/collab-maint/sakura.git
