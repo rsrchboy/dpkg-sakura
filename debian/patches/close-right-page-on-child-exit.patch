@@ -4,7 +4,7 @@ Description: Close the right page when a child process exits
  actually running.
 Author: Thibaut Girka <thib@sitedethib.com>
 Forwarded: yes
-Bug: 
+Bug: https://bugs.launchpad.net/sakura/+bug/984493 
 Debian-Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=668988
 
 --- sakura-3.0.3.orig/src/sakura.c

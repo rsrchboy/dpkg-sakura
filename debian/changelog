@@ -4,6 +4,8 @@ sakura (3.0.3-2) UNRELEASED; urgency=low
     exits, sakura closes the current notebook page, which can
     be different from the page in which the child process was
     actually running. Thanks to Thibaut Girka! (Closes: #668988)
+  * retain-opacity-level.patch: Backport fix for opacity setting
+    not being retained on tab creation. (LP: #969294)
 
  -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Tue, 17 Apr 2012 20:44:04 -0400
 
