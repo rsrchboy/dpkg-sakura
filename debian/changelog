@@ -1,4 +1,4 @@
-sakura (3.0.3-2) UNRELEASED; urgency=low
+sakura (3.0.3-2) unstable; urgency=low
 
   * close-right-page-on-child-exit.patch: When a child process
     exits, sakura closes the current notebook page, which can
@@ -7,7 +7,7 @@ sakura (3.0.3-2) UNRELEASED; urgency=low
   * retain-opacity-level.patch: Backport fix for opacity setting
     not being retained on tab creation. (LP: #969294)
 
- -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Tue, 17 Apr 2012 20:44:04 -0400
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Tue, 17 Apr 2012 21:26:43 -0400
 
 sakura (3.0.3-1) unstable; urgency=low
 
