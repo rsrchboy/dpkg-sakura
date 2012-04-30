@@ -1,3 +1,12 @@
+sakura (3.0.3-3) unstable; urgency=low
+
+  * dynamic-cwd-path.patch: replaces fix_FTBFS4Hurd.patch, patch by
+    Sebastian Reichel. Better dynamic string allocation handling
+    for PATH_MAX. This patch also fixes the not keeping cwd in new
+    tabs bug (LP: #977232)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 01 May 2012 08:49:14 +0900
+
 sakura (3.0.3-2) unstable; urgency=low
 
   * close-right-page-on-child-exit.patch: When a child process
