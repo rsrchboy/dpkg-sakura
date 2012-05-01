@@ -1,4 +1,13 @@
-sakura (3.0.3-3) unstable; urgency=low
+sakura (3.0.4-1) unstable; urgency=low
+
+  * new upstream release:
+    . disabled patches: dynamic-cwd-path.patch (LP: #977232) (see below
+      for details), retain-opacity-level.patch
+  * unfuzzified: close-right-page-on-child-exit.patch
+
+ -- Norbert Preining <preining@debian.org>  Tue, 01 May 2012 09:50:33 +0900
+
+sakura (3.0.3-3) UNRELEASED; urgency=low
 
   * dynamic-cwd-path.patch: replaces fix_FTBFS4Hurd.patch, patch by
     Sebastian Reichel. Better dynamic string allocation handling

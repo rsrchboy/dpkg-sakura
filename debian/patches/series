@@ -1,4 +1,4 @@
 #fix_FTBFS4Hurd.patch
 close-right-page-on-child-exit.patch
-retain-opacity-level.patch
-dynamic-cwd-path.patch
+#retain-opacity-level.patch
+#dynamic-cwd-path.patch

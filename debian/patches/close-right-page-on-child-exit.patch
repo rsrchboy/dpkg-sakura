@@ -7,11 +7,17 @@ Forwarded: yes
 Bug: https://bugs.launchpad.net/sakura/+bug/984493 
 Debian-Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=668988
 
---- sakura-3.0.3.orig/src/sakura.c
-+++ sakura-3.0.3/src/sakura.c
-@@ -604,7 +604,8 @@ sakura_child_exited (GtkWidget *widget,
- 	gint status, page, npages;
+---
+ src/sakura.c |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Index: sakura.git/src/sakura.c
+===================================================================
+--- sakura.git.orig/src/sakura.c	2012-05-01 09:48:03.029589392 +0900
++++ sakura.git/src/sakura.c	2012-05-01 09:48:19.581580620 +0900
+@@ -1528,7 +1528,8 @@
  	struct terminal *term;
+ 	gint page, npages;
  
 -	page = gtk_notebook_get_current_page(GTK_NOTEBOOK(sakura.notebook));
 +	page = gtk_notebook_page_num(GTK_NOTEBOOK(sakura.notebook),
