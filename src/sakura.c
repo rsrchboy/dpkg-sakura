@@ -2,7 +2,7 @@
  *  Filename: sakura.c
  *  Description: VTE-based terminal emulator
  *
- *           Copyright (C) 2006-2008  David Gómez <david@pleyades.net>
+ *           Copyright (C) 2006-2012  David Gómez <david@pleyades.net>
  *           Copyright (C) 2008       Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -382,6 +382,12 @@ gboolean sakura_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_
 
 	if (event->type!=GDK_KEY_PRESS) return FALSE;
 
+	/* Check is Caps lock is enabled. If it is, change keyval to make keybindings work with
+	   both lowercase and uppercase letters */
+	if (gdk_keymap_get_caps_lock_state(gdk_keymap_get_default())) {
+		event->keyval=gdk_keyval_to_upper(event->keyval);
+	}
+
 	/* add_tab_accelerator + T or del_tab_accelerator + W pressed */
 	if ( (event->state & sakura.add_tab_accelerator)==sakura.add_tab_accelerator &&
 	 	  event->keyval==sakura.add_tab_key ) {
@@ -604,7 +610,8 @@ sakura_child_exited (GtkWidget *widget, void *data)
 	gint status, page, npages;
 	struct terminal *term;
 
-	page = gtk_notebook_get_current_page(GTK_NOTEBOOK(sakura.notebook));
+	page = gtk_notebook_page_num(GTK_NOTEBOOK(sakura.notebook),
+				gtk_widget_get_parent(widget));
 	npages = gtk_notebook_get_n_pages(GTK_NOTEBOOK(sakura.notebook));
 	term = sakura_get_page_term(sakura, page);
 
@@ -1418,18 +1425,32 @@ sakura_get_term_cwd(struct terminal* term)
 	char *cwd = NULL;
 
 	if (term->pid >= 0) {
-		char *file;
-		char buf[PATH_MAX+1];
+		char *file, *buf;
+		struct stat sb;
 		int len;
 
 		file = g_strdup_printf ("/proc/%d/cwd", term->pid);
-		len = readlink (file, buf, sizeof (buf) - 1);
+
+		if (g_stat(file, &sb) == -1) {
+			g_free(file);
+			return cwd;
+		}
+
+		buf = malloc(sb.st_size + 1);
+
+		if(buf == NULL) {
+			g_free(file);
+			return cwd;
+		}
+
+		len = readlink(file, buf, sb.st_size + 1);
 
 		if (len > 0 && buf[0] == '/') {
 			buf[len] = '\0';
 			cwd = g_strdup(buf);
 		}
 
+		g_free(buf);
 		g_free(file);
 	}
 
@@ -2587,7 +2608,8 @@ sakura_add_tab()
 	free(cwd);
 
 	/* Configuration for the newly created terminal */
-
+	GdkColor white={0, 255, 255, 255};
+	vte_terminal_set_color_background(VTE_TERMINAL (term->vte), &white);
 	vte_terminal_set_backspace_binding(VTE_TERMINAL(term->vte), VTE_ERASE_ASCII_DELETE);
 	vte_terminal_set_colors(VTE_TERMINAL(term->vte), &sakura.forecolor, &sakura.backcolor,
 	                        sakura.palette, PALETTE_SIZE);
