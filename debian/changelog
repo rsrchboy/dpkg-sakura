@@ -1,10 +1,10 @@
-sakura (3.0.4-2) UNRELEASED; urgency=low
+sakura (3.0.4-2) unstable; urgency=low
 
   * debian/patches: Drop all disabled patches and
     close-right-page-on-child-exit.patch, it was also
     applied upstream.
 
- -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Thu, 03 May 2012 01:51:15 -0400
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Thu, 03 May 2012 02:20:08 -0400
 
 sakura (3.0.4-1) unstable; urgency=low
 
